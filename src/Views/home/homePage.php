@@ -28,7 +28,7 @@ if (isset($_SESSION["user"])) : ?>
     <div class="container d-flex flex-row flex-wrap justify-content-center teams mb-5">
     <?php foreach ($teams as $team): ?>
     <div class="card m-2">
-        <a href="">
+        <a href="/bizkod/schedule/<?php echo $team->id; ?>">
             <img src="<?php echo URLROOT . 'public/img/teams/' . $team->slika; ?>" class="card-img-top" alt="<?php echo $team->slika; ?>">
             <div class="card-body">
                 <h5 class="card-title text-dark"><?php echo $team->naziv; ?></h5>
