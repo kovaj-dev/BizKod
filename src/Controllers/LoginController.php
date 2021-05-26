@@ -34,4 +34,13 @@ class LoginController extends BaseController
         }
         return new JsonResponse(["status" => "0", "msg" => $errors]);
     }
+
+    public function logoutUser()
+    {
+        session_start();
+        if (isset($_SESSION["user"])) {
+            session_destroy();
+            header('Location: /bizkod');
+        }
+    }
 }

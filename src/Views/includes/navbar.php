@@ -16,7 +16,7 @@
                     <a class="nav-link font-weight-bold text-light" href="/bizkod/profile">Profil</a>
                 </li>
                 <li class="nav-item m-2">
-                    <a class="nav-link font-weight-bold text-light" href="#">Izloguj se</a>
+                    <a class="nav-link font-weight-bold text-light" href="/bizkod/logout">Izloguj se</a>
                 </li>
             </ul>
         </div>
