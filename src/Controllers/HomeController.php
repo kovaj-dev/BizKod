@@ -5,9 +5,16 @@ namespace App\Controllers;
 use App\Libraries\Core\BaseController;
 use App\Libraries\Core\Response;
 use App\Libraries\Core\View;
+use App\Models\UserModel;
 
 class HomeController extends BaseController
 {
+    private $userModel;
+    public function __construct()
+    {
+        $this->userModel = $this->model(new UserModel());
+    }
+
     public function index()
     {
         return new Response('home/loginPage');
@@ -20,6 +27,9 @@ class HomeController extends BaseController
 
     public function homePage()
     {
-        return new Response('home/homePage');
+        $teams = $this->userModel->selectTeams();
+        return new Response('home/homePage', [
+            "teams" => $teams
+        ]);
     }
 }

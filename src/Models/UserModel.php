@@ -28,4 +28,16 @@ class UserModel implements ModelInterface
             return false;
         }
     }
+
+    public function selectTeams()
+    {
+        try {
+            $sql = "SELECT id, naziv, slika FROM tim";
+            $this->db->query($sql);
+            $this->db->execute();
+            return $this->db->getResults();
+        } catch (\PDOException $e){
+            return false;
+        }
+    }
 }
