@@ -20,8 +20,8 @@ class LoginController extends BaseController
 
     public function loginUser()
     {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $email = trim($_POST['email']);
+        $password = trim($_POST['password']);
         $errors = Validation::validateLogin($email, $password);
         if (empty($errors["email"]) && empty($errors["password"])){
             $data = $this->userModel->selectUserExist($email);

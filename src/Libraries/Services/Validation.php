@@ -12,12 +12,12 @@ class Validation
             "email" => "",
             "password" => ""
         ];
-        if (empty($email)){
+        if (empty(trim($email))){
             $errorMess["email"] = "Molimo vas unesite vaš email";
         } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $errorMess["email"] = "Pogrešan format email-a";
         }
-        if (empty($password)){
+        if (empty(trim($password))){
             $errorMess['password'] = "Molimo vas unesite vašu lozinku";
         }
 
