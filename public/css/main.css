@@ -51,12 +51,15 @@ input[type="text"], input[type="password"] {
     font-style: italic;
 }
 
-button[type="submit"] {
+.login button[type="submit"], .checkin button[type="submit"] {
     width: 80%;
     text-transform: uppercase;
     font-weight: bold;
     background-color: #00AEEF;
     border: none;
+    padding: 0.7rem;
+    margin: 0.7rem;
+    font-size: 1.1rem;
 }
 
 .page-title {
@@ -93,7 +96,7 @@ a {
 }
 
 .accordion .card-body {
-    background-color: #CDCDCD;
+    background-color: #979797;
     border: 5px solid #353535;
 }
 
@@ -122,4 +125,69 @@ a {
 
 .list-group .list-group-item .picture img {
     border-radius: 50%;
+}
+
+/* CHECKIN PAGE */
+
+.checkin .list-group {
+    width: 80%;
+}
+
+.checkin .list-group .list-group-item {
+    background-color: #353535;
+    width: 100%;
+    margin: 0.4rem 0;
+    border-radius: 0.5rem;
+}
+
+.checkin .list-group .list-group-item .day {
+    margin: 0 2rem 0 0;
+    font-weight: bold;
+}
+
+.checkin .list-group .list-group-item button {
+    border: none;
+    background: inherit;
+    margin: 0 0.3rem;
+}
+
+.checkin .list-group .list-group-item button img {
+    max-width: 40px;
+}
+
+/* PROFILE PAGE */
+
+.profile-image img {
+    width: 170px;
+    border: 10px solid #DFDFDF;
+    border-radius: 1rem;
+}
+
+.profile span {
+    font-size: 1.1rem;
+}
+
+.info-title {
+    font-weight: bold;
+}
+
+.change-password {
+    width: 85%;
+}
+
+.change-password .card .card-body {
+    background-color: #979797;
+    border-bottom-left-radius: 1rem;
+}
+
+#passwordForm {
+    text-align: center;
+}
+.change-password .save {
+    width: 80%;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #00AEEF;
+    border: none;
+    font-size: 1.1rem;
 }

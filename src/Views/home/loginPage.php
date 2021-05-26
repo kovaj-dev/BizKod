@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="<?= URLROOT."public/css/main.css" ?>">
 </head>
 <body style="background-image: url('<?= URLROOT."public/img/bg.jpg" ?>')">
-<div class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100">
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center login vh-100">
     <img class="img-fluid mb-3" src='<?= URLROOT."public/img/infostud.png" ?>' alt="Infostud Header">
     <form id="loginForm" action="">
         <input type="text" name="email" id="email" class="form-control" aria-describedby="emailHelp" placeholder="Email adresa">

@@ -32,4 +32,12 @@ class HomeController extends BaseController
             "teams" => $teams
         ]);
     }
+
+    public function checkinPage() {
+        return new Response('home/checkinPage');
+    }
+
+    public function profilePage() {
+        return new Response('home/profilePage');
+    }
 }

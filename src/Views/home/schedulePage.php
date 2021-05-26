@@ -245,16 +245,16 @@ if (isset($_SESSION["user"])) : ?>
 
         <?php if (isset($future)): ?>
             <h1 class="page-title">Raspored za sledeću nedelju</h1>
-            <div class="accordion" id="accordionExample">
+            <div class="accordion" id="accordionExample2">
                 <div class="card">
-                    <div class="card-header" id="headingOne">
+                    <div class="card-header" id="headingOne2">
                         <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseOne2" aria-expanded="false" aria-controls="collapseOne2">
                                 PONEDELJAK
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2" data-bs-parent="#accordionExample2">
                         <div class="card-body">
                             <ul class="list-group">
                                 <?php foreach ($future as $item): ?>
@@ -295,14 +295,14 @@ if (isset($_SESSION["user"])) : ?>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingTwo">
+                    <div class="card-header" id="headingTwo2">
                         <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
                                 UTORAK
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo2" data-bs-parent="#accordionExample2">
                         <div class="card-body">
                             <ul class="list-group">
                                 <?php foreach ($future as $item): ?>
@@ -343,14 +343,14 @@ if (isset($_SESSION["user"])) : ?>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingThree">
+                    <div class="card-header" id="headingThree2">
                         <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
                                 SREDA
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div id="collapseThree2" class="collapse" aria-labelledby="headingThree2" data-bs-parent="#accordionExample2">
                         <div class="card-body">
                             <ul class="list-group">
                                 <?php foreach ($future as $item): ?>
@@ -391,14 +391,14 @@ if (isset($_SESSION["user"])) : ?>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingFour">
+                    <div class="card-header" id="headingFour2">
                         <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseFour2" aria-expanded="false" aria-controls="collapseFour2">
                                 ČETVRTAK
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div id="collapseFour2" class="collapse" aria-labelledby="headingFour2" data-bs-parent="#accordionExample2">
                         <div class="card-body">
                             <ul class="list-group">
                                 <?php foreach ($future as $item): ?>
@@ -439,14 +439,14 @@ if (isset($_SESSION["user"])) : ?>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingFive">
+                    <div class="card-header" id="headingFive2">
                         <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseFive2" aria-expanded="false" aria-controls="collapseFive2">
                                 PETAK
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div id="collapseFive2" class="collapse" aria-labelledby="headingFive2" data-bs-parent="#accordionExample2">
                         <div class="card-body">
                             <ul class="list-group">
                                 <?php foreach ($future as $item): ?>
