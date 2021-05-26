@@ -40,4 +40,8 @@ class HomeController extends BaseController
     public function profilePage() {
         return new Response('home/profilePage');
     }
+
+    public function infoPage() {
+        return new Response('home/infoPage');
+    }
 }

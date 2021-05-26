@@ -13,6 +13,9 @@
                     <a class="nav-link font-weight-bold text-light" href="/bizkod/checkin">Prijava za raspored</a>
                 </li>
                 <li class="nav-item m-2">
+                    <a class="nav-link font-weight-bold text-light" href="/bizkod/info">Vesti</a>
+                </li>
+                <li class="nav-item m-2">
                     <a class="nav-link font-weight-bold text-light" href="/bizkod/profile">Profil</a>
                 </li>
                 <li class="nav-item m-2">
