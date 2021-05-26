@@ -18,9 +18,18 @@ class ScheduleController extends BaseController
 
     public function showScheduleForTeam($teamId)
     {
+        $future = [];
+        if ($this->scheduleModel->selectTeamExistInSchedule($teamId) > 0){
+            $future = $this->scheduleModel->selectFutureScheduleForTeam($teamId);
+        }
+        else{
+            $future = $this->scheduleModel->selectFutureSchedule($teamId);
+        }
         $schedule = $this->scheduleModel->selectCurrentScheduleForTeam($teamId);
+
         return new Response('home/schedulePage', [
-            "schedule" => $schedule
+            "schedule" => $schedule,
+            "future" => $future
         ]);
     }
 }

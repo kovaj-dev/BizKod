@@ -243,7 +243,7 @@ if (isset($_SESSION["user"])) : ?>
 </div>
     <div class="container d-flex flex-column" style="background-color: #CDCDCD; min-height: 100vh">
 
-        <?php if (isset($schedule)): ?>
+        <?php if (isset($future)): ?>
             <h1 class="page-title">Raspored za sledeću nedelju</h1>
             <div class="accordion" id="accordionExample">
                 <div class="card">
@@ -257,7 +257,7 @@ if (isset($_SESSION["user"])) : ?>
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="card-body">
                             <ul class="list-group">
-                                <?php foreach ($schedule as $item): ?>
+                                <?php foreach ($future as $item): ?>
                                     <li class="list-group-item d-flex justify-content-between">
                                         <div class="picture">
                                             <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
@@ -268,17 +268,23 @@ if (isset($_SESSION["user"])) : ?>
                                             <?php echo $item->ime . ' ' . $item->prezime; ?>
                                         </h3>
                                         <div class="icons">
-                                            <?php if (empty($item->ponedeljak)): ?>
+                                            <?php if (isset($item->ponedeljak)): ?>
+                                                <?php if (empty($item->ponedeljak)): ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                                                         alt="<?php echo 'question' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php elseif ($item->ponedeljak === "1") : ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                                                         alt="<?php echo 'home' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php elseif ($item->ponedeljak === "2") : ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                                                         alt="<?php echo 'office' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php endif; ?>
+                                            <?php else: ?>
                                                 <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
-                                                     alt="<?php echo 'question' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
-                                                     style="width: 3rem; fill: #00AEEF;">
-                                            <?php elseif ($item->ponedeljak === "1") : ?>
-                                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
-                                                     alt="<?php echo 'home' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
-                                                     style="width: 3rem; fill: #00AEEF;">
-                                            <?php elseif ($item->ponedeljak === "2") : ?>
-                                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
-                                                     alt="<?php echo 'office' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
+                                                     alt="<?php echo 'question' . $item->ime . $item->prezime; ?>"
                                                      style="width: 3rem; fill: #00AEEF;">
                                             <?php endif; ?>
                                         </div>
@@ -299,7 +305,7 @@ if (isset($_SESSION["user"])) : ?>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="card-body">
                             <ul class="list-group">
-                                <?php foreach ($schedule as $item): ?>
+                                <?php foreach ($future as $item): ?>
                                     <li class="list-group-item d-flex justify-content-between">
                                         <div class="picture">
                                             <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
@@ -310,17 +316,23 @@ if (isset($_SESSION["user"])) : ?>
                                             <?php echo $item->ime . ' ' . $item->prezime; ?>
                                         </h3>
                                         <div class="icons">
-                                            <?php if (empty($item->utorak)): ?>
+                                            <?php if(isset($item->utorak)): ?>
+                                                <?php if (empty($item->utorak)): ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                                                         alt="<?php echo 'question' . $item->ime . $item->prezime . $item->utorak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php elseif ($item->utorak === "1") : ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                                                         alt="<?php echo 'home' . $item->ime . $item->prezime . $item->utorak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php elseif ($item->utorak === "2") : ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                                                         alt="<?php echo 'office' . $item->ime . $item->prezime . $item->utorak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php endif; ?>
+                                            <?php else: ?>
                                                 <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
-                                                     alt="<?php echo 'question' . $item->ime . $item->prezime . $item->utorak; ?>"
-                                                     style="width: 3rem; fill: #00AEEF;">
-                                            <?php elseif ($item->utorak === "1") : ?>
-                                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
-                                                     alt="<?php echo 'home' . $item->ime . $item->prezime . $item->utorak; ?>"
-                                                     style="width: 3rem; fill: #00AEEF;">
-                                            <?php elseif ($item->utorak === "2") : ?>
-                                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
-                                                     alt="<?php echo 'office' . $item->ime . $item->prezime . $item->utorak; ?>"
+                                                     alt="<?php echo 'question' . $item->ime . $item->prezime; ?>"
                                                      style="width: 3rem; fill: #00AEEF;">
                                             <?php endif; ?>
                                         </div>
@@ -341,7 +353,7 @@ if (isset($_SESSION["user"])) : ?>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                         <div class="card-body">
                             <ul class="list-group">
-                                <?php foreach ($schedule as $item): ?>
+                                <?php foreach ($future as $item): ?>
                                     <li class="list-group-item d-flex justify-content-between">
                                         <div class="picture">
                                             <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
@@ -352,17 +364,23 @@ if (isset($_SESSION["user"])) : ?>
                                             <?php echo $item->ime . ' ' . $item->prezime; ?>
                                         </h3>
                                         <div class="icons">
-                                            <?php if (empty($item->sreda)): ?>
+                                            <?php if (isset($item->sreda)): ?>
+                                                <?php if (empty($item->sreda)): ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                                                         alt="<?php echo 'question' . $item->ime . $item->prezime . $item->sreda; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php elseif ($item->sreda === "1") : ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                                                         alt="<?php echo 'home' . $item->ime . $item->prezime . $item->sreda; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php elseif ($item->sreda === "2") : ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                                                         alt="<?php echo 'office' . $item->ime . $item->prezime . $item->sreda; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php endif; ?>
+                                            <?php else: ?>
                                                 <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
-                                                     alt="<?php echo 'question' . $item->ime . $item->prezime . $item->sreda; ?>"
-                                                     style="width: 3rem; fill: #00AEEF;">
-                                            <?php elseif ($item->sreda === "1") : ?>
-                                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
-                                                     alt="<?php echo 'home' . $item->ime . $item->prezime . $item->sreda; ?>"
-                                                     style="width: 3rem; fill: #00AEEF;">
-                                            <?php elseif ($item->sreda === "2") : ?>
-                                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
-                                                     alt="<?php echo 'office' . $item->ime . $item->prezime . $item->sreda; ?>"
+                                                     alt="<?php echo 'question' . $item->ime . $item->prezime; ?>"
                                                      style="width: 3rem; fill: #00AEEF;">
                                             <?php endif; ?>
                                         </div>
@@ -383,7 +401,7 @@ if (isset($_SESSION["user"])) : ?>
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                         <div class="card-body">
                             <ul class="list-group">
-                                <?php foreach ($schedule as $item): ?>
+                                <?php foreach ($future as $item): ?>
                                     <li class="list-group-item d-flex justify-content-between">
                                         <div class="picture">
                                             <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
@@ -394,17 +412,23 @@ if (isset($_SESSION["user"])) : ?>
                                             <?php echo $item->ime . ' ' . $item->prezime; ?>
                                         </h3>
                                         <div class="icons">
-                                            <?php if (empty($item->cetvrtak)): ?>
+                                            <?php if(isset($item->cetvrtak)): ?>
+                                                <?php if (empty($item->cetvrtak)): ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                                                         alt="<?php echo 'question' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php elseif ($item->cetvrtak === "1") : ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                                                         alt="<?php echo 'home' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php elseif ($item->cetvrtak === "2") : ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                                                         alt="<?php echo 'office' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php endif; ?>
+                                            <?php else: ?>
                                                 <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
-                                                     alt="<?php echo 'question' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
-                                                     style="width: 3rem; fill: #00AEEF;">
-                                            <?php elseif ($item->cetvrtak === "1") : ?>
-                                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
-                                                     alt="<?php echo 'home' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
-                                                     style="width: 3rem; fill: #00AEEF;">
-                                            <?php elseif ($item->cetvrtak === "2") : ?>
-                                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
-                                                     alt="<?php echo 'office' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
+                                                     alt="<?php echo 'question' . $item->ime . $item->prezime; ?>"
                                                      style="width: 3rem; fill: #00AEEF;">
                                             <?php endif; ?>
                                         </div>
@@ -425,7 +449,7 @@ if (isset($_SESSION["user"])) : ?>
                     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                         <div class="card-body">
                             <ul class="list-group">
-                                <?php foreach ($schedule as $item): ?>
+                                <?php foreach ($future as $item): ?>
                                     <li class="list-group-item d-flex justify-content-between">
                                         <div class="picture">
                                             <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
@@ -436,17 +460,23 @@ if (isset($_SESSION["user"])) : ?>
                                             <?php echo $item->ime . ' ' . $item->prezime; ?>
                                         </h3>
                                         <div class="icons">
-                                            <?php if (empty($item->petak)): ?>
+                                            <?php if (isset($item->petak)): ?>
+                                                <?php if (empty($item->petak)): ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                                                         alt="<?php echo 'question' . $item->ime . $item->prezime . $item->petak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php elseif ($item->petak === "1") : ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                                                         alt="<?php echo 'home' . $item->ime . $item->prezime . $item->petak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php elseif ($item->petak === "2") : ?>
+                                                    <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                                                         alt="<?php echo 'office' . $item->ime . $item->prezime . $item->petak; ?>"
+                                                         style="width: 3rem; fill: #00AEEF;">
+                                                <?php endif; ?>
+                                            <?php else: ?>
                                                 <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
-                                                     alt="<?php echo 'question' . $item->ime . $item->prezime . $item->petak; ?>"
-                                                     style="width: 3rem; fill: #00AEEF;">
-                                            <?php elseif ($item->petak === "1") : ?>
-                                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
-                                                     alt="<?php echo 'home' . $item->ime . $item->prezime . $item->petak; ?>"
-                                                     style="width: 3rem; fill: #00AEEF;">
-                                            <?php elseif ($item->petak === "2") : ?>
-                                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
-                                                     alt="<?php echo 'office' . $item->ime . $item->prezime . $item->petak; ?>"
+                                                     alt="<?php echo 'question' . $item->ime . $item->prezime; ?>"
                                                      style="width: 3rem; fill: #00AEEF;">
                                             <?php endif; ?>
                                         </div>
