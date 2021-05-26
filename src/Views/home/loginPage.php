@@ -16,7 +16,6 @@
 <body style="background-image: url('<?= URLROOT."public/img/bg.jpg" ?>')">
 <div class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100">
     <img class="img-fluid mb-3" src='<?= URLROOT."public/img/infostud.png" ?>' alt="Infostud Header">
-    <!--<h1></h1>-->
     <form id="loginForm" action="">
         <input type="text" name="email" id="email" class="form-control" aria-describedby="emailHelp" placeholder="Email adresa">
         <p id="emailMessage" class="text-danger"></p>
@@ -27,8 +26,11 @@
 </div>
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="module" src="<?php echo URLROOT; ?>/public/js/scripts/homeApp.js"></script>
