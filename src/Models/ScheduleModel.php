@@ -19,8 +19,8 @@ class ScheduleModel implements ModelInterface
     {
         try {
             $sql = "SELECT zaposlen.id, ime, prezime, slika, ponedeljak, utorak, sreda, cetvrtak, petak FROM zaposlen
-                    LEFT JOIN trenutni_raspored tr on zaposlen.id = tr.id_zaposlen
-                    LEFT JOIN raspored r on r.id = tr.id_raspored
+                    LEFT JOIN raspored tr on zaposlen.id = tr.id_zaposlen
+                    LEFT JOIN nedelja r on r.id = tr.id_raspored
                     WHERE id_tim = :tim AND (NOW() BETWEEN pocetak AND kraj OR id_raspored is null)";
             $this->db->query($sql);
             $this->db->bind(':tim', $teamId);
