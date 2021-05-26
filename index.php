@@ -8,7 +8,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
     $r->addRoute('GET', '/', 'HomeController/index');
     $r->addRoute('POST', '/login', 'LoginController/loginUser');
     $r->addRoute('GET', '/home', 'HomeController/homePage');
-    $r->addRoute('GET', '/schedule/{id:\d+}', 'HomeController/showScheduleForTeam');
+    $r->addRoute('GET', '/schedule/{id:\d+}', 'ScheduleController/showScheduleForTeam');
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];

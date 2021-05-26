@@ -15,7 +15,7 @@ if (isset($_SESSION["user"])) : ?>
 <?php if (isset($teams)): ?>
     <?php foreach ($teams as $team): ?>
     <div class="card" style="width: 18rem;">
-        <a href="">
+        <a href="/bizkod/schedule/<?php echo $team->id; ?>" class="teamSchedule">
             <img src="<?php echo URLROOT . 'public/img/teams/' . $team->slika; ?>" class="card-img-top" alt="<?php echo $team->slika; ?>">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $team->naziv; ?></h5>

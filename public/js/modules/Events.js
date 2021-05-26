@@ -12,3 +12,14 @@ export const userLogin = () =>
         }
     });
 }
+
+/*
+export const showTeamSchedule = () =>
+{
+    const links = document.querySelectorAll('.teamSchedule');
+    links.forEach((link) => {
+        link.addEventListener('click', () => {
+
+        });
+    });
+}*/
