@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#loginForm {
+    width: 90%;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 1rem;
+    text-align: center;
+}
+
+input[type="text"], input[type="password"] {
+    border: 5px solid #DFDFDF;
+    font-style: italic;
+}
+
+button[type="submit"] {
+    width: 80%;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #00AEEF;
+    border: none;
+}
