@@ -84,3 +84,42 @@ button[type="submit"] {
 a {
     text-decoration: none;
 }
+
+/* RASPORED STRANICA */
+
+.accordion .card {
+    margin: 1rem;
+    background-color: #353535;
+}
+
+.accordion .card-body {
+    background-color: #CDCDCD;
+    border: 5px solid #353535;
+}
+
+.accordion button {
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.list-group .list-group-item {
+    align-items:center;
+    text-align:center;
+    background-color: inherit;
+    border: none;
+    border-bottom: 2px solid #353535;
+}
+.list-group .list-group-item:last-of-type {
+    border-bottom: none;
+}
+
+.list-group .list-group-item h3 {
+    font-size:1.1rem;
+}
+
+.list-group .list-group-item .picture img {
+    border-radius: 50%;
+}

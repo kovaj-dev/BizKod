@@ -13,22 +13,24 @@
     <link rel="shortcut icon" type="image/png" href="<?= URLROOT."public/img/logo.png" ?>"/>
     <link rel="stylesheet" href="<?= URLROOT."public/css/main.css" ?>">
 </head>
-<body style="background-color: #F0F0F0">
+<body>
 
 <header id="header">
     <?php require_once ROOT . "/Views/includes/navbar.php"; ?>
 </header>
+
 <?php
 session_start();
 if (isset($_SESSION["user"])) : ?>
-<div class="container">
+<div class="container d-flex flex-column" style="background-color: #F0F0F0; min-height: 100vh">
 
     <?php if (isset($schedule)): ?>
+        <h1 class="page-title">Trenutni raspored</h1>
         <div class="accordion" id="accordionExample">
             <div class="card">
                 <div class="card-header" id="headingOne">
                     <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             PONEDELJAK
                         </button>
                     </h2>
@@ -38,7 +40,7 @@ if (isset($_SESSION["user"])) : ?>
                         <ul class="list-group">
                             <?php foreach ($schedule as $item): ?>
                             <li class="list-group-item d-flex justify-content-between">
-                                <div>
+                                <div class="picture">
                                     <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
                                          alt="<?php echo 'ponedeljak' . $item->ime . $item->prezime . $item->slika; ?>"
                                          style="width: 5rem;">
@@ -52,11 +54,11 @@ if (isset($_SESSION["user"])) : ?>
                                              alt="<?php echo 'question' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
                                             style="width: 3rem; fill: #00AEEF;">
                                     <?php elseif ($item->ponedeljak === "1") : ?>
-                                        <img src="<?php echo URLROOT . '/public/img/icons/Home.svg'; ?>"
+                                        <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
                                              alt="<?php echo 'home' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
                                              style="width: 3rem; fill: #00AEEF;">
                                     <?php elseif ($item->ponedeljak === "2") : ?>
-                                        <img src="<?php echo URLROOT . '/public/img/icons/Workplace.svg'; ?>"
+                                        <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
                                              alt="<?php echo 'office' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
                                              style="width: 3rem; fill: #00AEEF;">
                                     <?php endif; ?>
@@ -70,7 +72,7 @@ if (isset($_SESSION["user"])) : ?>
             <div class="card">
                 <div class="card-header" id="headingTwo">
                     <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             UTORAK
                         </button>
                     </h2>
@@ -80,7 +82,7 @@ if (isset($_SESSION["user"])) : ?>
                         <ul class="list-group">
                             <?php foreach ($schedule as $item): ?>
                                 <li class="list-group-item d-flex justify-content-between">
-                                    <div>
+                                    <div class="picture">
                                         <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
                                              alt="<?php echo 'utorak' . $item->ime . $item->prezime . $item->slika; ?>"
                                              style="width: 5rem;">
@@ -94,11 +96,11 @@ if (isset($_SESSION["user"])) : ?>
                                                  alt="<?php echo 'question' . $item->ime . $item->prezime . $item->utorak; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php elseif ($item->utorak === "1") : ?>
-                                            <img src="<?php echo URLROOT . '/public/img/icons/Home.svg'; ?>"
+                                            <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
                                                  alt="<?php echo 'home' . $item->ime . $item->prezime . $item->utorak; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php elseif ($item->utorak === "2") : ?>
-                                            <img src="<?php echo URLROOT . '/public/img/icons/Workplace.svg'; ?>"
+                                            <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
                                                  alt="<?php echo 'office' . $item->ime . $item->prezime . $item->utorak; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php endif; ?>
@@ -112,7 +114,7 @@ if (isset($_SESSION["user"])) : ?>
             <div class="card">
                 <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                             SREDA
                         </button>
                     </h2>
@@ -122,7 +124,7 @@ if (isset($_SESSION["user"])) : ?>
                         <ul class="list-group">
                             <?php foreach ($schedule as $item): ?>
                                 <li class="list-group-item d-flex justify-content-between">
-                                    <div>
+                                    <div class="picture">
                                         <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
                                              alt="<?php echo 'sreda' . $item->ime . $item->prezime . $item->slika; ?>"
                                              style="width: 5rem;">
@@ -136,11 +138,11 @@ if (isset($_SESSION["user"])) : ?>
                                                  alt="<?php echo 'question' . $item->ime . $item->prezime . $item->sreda; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php elseif ($item->sreda === "1") : ?>
-                                            <img src="<?php echo URLROOT . '/public/img/icons/Home.svg'; ?>"
+                                            <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
                                                  alt="<?php echo 'home' . $item->ime . $item->prezime . $item->sreda; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php elseif ($item->sreda === "2") : ?>
-                                            <img src="<?php echo URLROOT . '/public/img/icons/Workplace.svg'; ?>"
+                                            <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
                                                  alt="<?php echo 'office' . $item->ime . $item->prezime . $item->sreda; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php endif; ?>
@@ -154,7 +156,7 @@ if (isset($_SESSION["user"])) : ?>
             <div class="card">
                 <div class="card-header" id="headingFour">
                     <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                             ČETVRTAK
                         </button>
                     </h2>
@@ -164,7 +166,7 @@ if (isset($_SESSION["user"])) : ?>
                         <ul class="list-group">
                             <?php foreach ($schedule as $item): ?>
                                 <li class="list-group-item d-flex justify-content-between">
-                                    <div>
+                                    <div class="picture">
                                         <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
                                              alt="<?php echo 'cetvrtak' . $item->ime . $item->prezime . $item->slika; ?>"
                                              style="width: 5rem;">
@@ -178,11 +180,11 @@ if (isset($_SESSION["user"])) : ?>
                                                  alt="<?php echo 'question' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php elseif ($item->cetvrtak === "1") : ?>
-                                            <img src="<?php echo URLROOT . '/public/img/icons/Home.svg'; ?>"
+                                            <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
                                                  alt="<?php echo 'home' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php elseif ($item->cetvrtak === "2") : ?>
-                                            <img src="<?php echo URLROOT . '/public/img/icons/Workplace.svg'; ?>"
+                                            <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
                                                  alt="<?php echo 'office' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php endif; ?>
@@ -196,7 +198,7 @@ if (isset($_SESSION["user"])) : ?>
             <div class="card">
                 <div class="card-header" id="headingFive">
                     <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                             PETAK
                         </button>
                     </h2>
@@ -206,7 +208,7 @@ if (isset($_SESSION["user"])) : ?>
                         <ul class="list-group">
                             <?php foreach ($schedule as $item): ?>
                                 <li class="list-group-item d-flex justify-content-between">
-                                    <div>
+                                    <div class="picture">
                                         <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
                                              alt="<?php echo 'petak' . $item->ime . $item->prezime . $item->slika; ?>"
                                              style="width: 5rem;">
@@ -220,11 +222,11 @@ if (isset($_SESSION["user"])) : ?>
                                                  alt="<?php echo 'question' . $item->ime . $item->prezime . $item->petak; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php elseif ($item->petak === "1") : ?>
-                                            <img src="<?php echo URLROOT . '/public/img/icons/Home.svg'; ?>"
+                                            <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
                                                  alt="<?php echo 'home' . $item->ime . $item->prezime . $item->petak; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php elseif ($item->petak === "2") : ?>
-                                            <img src="<?php echo URLROOT . '/public/img/icons/Workplace.svg'; ?>"
+                                            <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
                                                  alt="<?php echo 'office' . $item->ime . $item->prezime . $item->petak; ?>"
                                                  style="width: 3rem; fill: #00AEEF;">
                                         <?php endif; ?>
@@ -238,6 +240,225 @@ if (isset($_SESSION["user"])) : ?>
         </div>
 
     <?php endif; ?>
+</div>
+    <div class="container d-flex flex-column" style="background-color: #CDCDCD; min-height: 100vh">
+
+        <?php if (isset($schedule)): ?>
+            <h1 class="page-title">Raspored za sledeću nedelju</h1>
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                PONEDELJAK
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <?php foreach ($schedule as $item): ?>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div class="picture">
+                                            <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
+                                                 alt="<?php echo 'ponedeljak' . $item->ime . $item->prezime . $item->slika; ?>"
+                                                 style="width: 5rem;">
+                                        </div>
+                                        <h3>
+                                            <?php echo $item->ime . ' ' . $item->prezime; ?>
+                                        </h3>
+                                        <div class="icons">
+                                            <?php if (empty($item->ponedeljak)): ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                                                     alt="<?php echo 'question' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php elseif ($item->ponedeljak === "1") : ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                                                     alt="<?php echo 'home' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php elseif ($item->ponedeljak === "2") : ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                                                     alt="<?php echo 'office' . $item->ime . $item->prezime . $item->ponedeljak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php endif; ?>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                UTORAK
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <?php foreach ($schedule as $item): ?>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div class="picture">
+                                            <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
+                                                 alt="<?php echo 'utorak' . $item->ime . $item->prezime . $item->slika; ?>"
+                                                 style="width: 5rem;">
+                                        </div>
+                                        <h3>
+                                            <?php echo $item->ime . ' ' . $item->prezime; ?>
+                                        </h3>
+                                        <div class="icons">
+                                            <?php if (empty($item->utorak)): ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                                                     alt="<?php echo 'question' . $item->ime . $item->prezime . $item->utorak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php elseif ($item->utorak === "1") : ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                                                     alt="<?php echo 'home' . $item->ime . $item->prezime . $item->utorak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php elseif ($item->utorak === "2") : ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                                                     alt="<?php echo 'office' . $item->ime . $item->prezime . $item->utorak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php endif; ?>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                SREDA
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <?php foreach ($schedule as $item): ?>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div class="picture">
+                                            <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
+                                                 alt="<?php echo 'sreda' . $item->ime . $item->prezime . $item->slika; ?>"
+                                                 style="width: 5rem;">
+                                        </div>
+                                        <h3>
+                                            <?php echo $item->ime . ' ' . $item->prezime; ?>
+                                        </h3>
+                                        <div class="icons">
+                                            <?php if (empty($item->sreda)): ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                                                     alt="<?php echo 'question' . $item->ime . $item->prezime . $item->sreda; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php elseif ($item->sreda === "1") : ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                                                     alt="<?php echo 'home' . $item->ime . $item->prezime . $item->sreda; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php elseif ($item->sreda === "2") : ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                                                     alt="<?php echo 'office' . $item->ime . $item->prezime . $item->sreda; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php endif; ?>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                ČETVRTAK
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <?php foreach ($schedule as $item): ?>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div class="picture">
+                                            <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
+                                                 alt="<?php echo 'cetvrtak' . $item->ime . $item->prezime . $item->slika; ?>"
+                                                 style="width: 5rem;">
+                                        </div>
+                                        <h3>
+                                            <?php echo $item->ime . ' ' . $item->prezime; ?>
+                                        </h3>
+                                        <div class="icons">
+                                            <?php if (empty($item->cetvrtak)): ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                                                     alt="<?php echo 'question' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php elseif ($item->cetvrtak === "1") : ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                                                     alt="<?php echo 'home' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php elseif ($item->cetvrtak === "2") : ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                                                     alt="<?php echo 'office' . $item->ime . $item->prezime . $item->cetvrtak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php endif; ?>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                PETAK
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <?php foreach ($schedule as $item): ?>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div class="picture">
+                                            <img src="<?php echo URLROOT . '/public/img/workers/' . $item->slika; ?>"
+                                                 alt="<?php echo 'petak' . $item->ime . $item->prezime . $item->slika; ?>"
+                                                 style="width: 5rem;">
+                                        </div>
+                                        <h3>
+                                            <?php echo $item->ime . ' ' . $item->prezime; ?>
+                                        </h3>
+                                        <div class="icons">
+                                            <?php if (empty($item->petak)): ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                                                     alt="<?php echo 'question' . $item->ime . $item->prezime . $item->petak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php elseif ($item->petak === "1") : ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                                                     alt="<?php echo 'home' . $item->ime . $item->prezime . $item->petak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php elseif ($item->petak === "2") : ?>
+                                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                                                     alt="<?php echo 'office' . $item->ime . $item->prezime . $item->petak; ?>"
+                                                     style="width: 3rem; fill: #00AEEF;">
+                                            <?php endif; ?>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <?php endif; ?>
 
 
 <?php else: ?>
@@ -245,15 +466,13 @@ if (isset($_SESSION["user"])) : ?>
     header('Location: /bizkod/');
     ?>
 <?php endif;  ?>
-</div>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </html>

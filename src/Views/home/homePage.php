@@ -24,7 +24,7 @@ session_start();
 if (isset($_SESSION["user"])) : ?>
 <div class="container-fluid d-flex flex-column">
 <?php if (isset($teams)): ?>
-        <h1 class="page-title">Rasporedi Infostud Timova</h1>
+    <h1 class="page-title">Rasporedi Timova</h1>
     <div class="container d-flex flex-row flex-wrap justify-content-center teams mb-5">
     <?php foreach ($teams as $team): ?>
     <div class="card m-2">
