@@ -36,7 +36,7 @@ body {
     padding: 1rem 1rem;
 }
 
-/* LOGIN STRANICA */
+/* LOGIN PAGE */
 
 #loginForm {
     width: 90%;
@@ -70,7 +70,7 @@ input[type="text"], input[type="password"] {
     font-size: 2rem;
 }
 
-/* TIMOVI STRANICA */
+/* TEAMS PAGE */
 
 .teams .card {
     width: 10rem;
@@ -88,7 +88,7 @@ a {
     text-decoration: none;
 }
 
-/* RASPORED STRANICA */
+/* SCHEDULE PAGE */
 
 .accordion .card {
     margin: 1rem;
@@ -177,7 +177,6 @@ a {
 
 .change-password .card .card-body {
     background-color: #979797;
-    border-bottom-left-radius: 1rem;
 }
 
 #passwordForm {
@@ -190,4 +189,23 @@ a {
     background-color: #00AEEF;
     border: none;
     font-size: 1.1rem;
+}
+
+/* INFO PAGE */
+
+.news .change-password .card {
+    background-color: #ED0C6E;
+}
+
+.news .change-password .card .card-body {
+    border-color: #ED0C6E;
+}
+
+#newsForm {
+    text-align: center;
+}
+
+#newsForm textarea {
+    border: 5px solid #DFDFDF;
+    font-style: italic;
 }
