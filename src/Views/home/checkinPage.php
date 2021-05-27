@@ -20,7 +20,9 @@
 </header>
 
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_SESSION["user"])) : ?>
 
 <div class="container d-flex flex-column align-items-center checkin mb-5">
@@ -29,86 +31,236 @@ if (isset($_SESSION["user"])) : ?>
         <li class="list-group-item text-light d-flex justify-content-between">
             <div class="day">PONEDELJAK</div>
             <div class="buttons">
-                <button type="button">
-                    <label for="mondayOffice">
-                        <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="monOffice">
-                    </label>
-                    <input type="radio" name="monday" id="mondayOffice" value="2" hidden>
-                </button>
-                <button type="button">
-                    <label for="mondayHome">
-                        <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="monHome">
-                    </label>
-                    <input type="radio" name="monday" id="mondayHome" value="1" hidden>
-                </button>
+                    <?php if (isset($userSchedule) && !empty($userSchedule->ponedeljak)): ?>
+                        <?php if ($userSchedule->ponedeljak === "1"): ?>
+                            <button type="button">
+                                <label for="mondayOffice">
+                                    <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="monOffice">
+                                </label>
+                                <input type="radio" name="monday" id="mondayOffice" value="2" hidden>
+                            </button>
+                            <button type="button">
+                                <label for="mondayHome">
+                                    <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>" id="monHome">
+                                </label>
+                                <input type="radio" name="monday" id="mondayHome" value="1" checked hidden>
+                            </button>
+                        <?php elseif ($userSchedule->ponedeljak === "2"): ?>
+                            <button type="button">
+                                <label for="mondayOffice">
+                                    <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>" id="monOffice">
+                                </label>
+                                <input type="radio" name="monday" id="mondayOffice" value="2" checked hidden>
+                            </button>
+                            <button type="button">
+                                <label for="mondayHome">
+                                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="monHome">
+                                </label>
+                                <input type="radio" name="monday" id="mondayHome" value="1" hidden>
+                            </button>
+                        <?php endif; ?>
+                        <?php else: ?>
+                            <button type="button">
+                            <label for="mondayOffice">
+                                <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="monOffice">
+                            </label>
+                            <input type="radio" name="monday" id="mondayOffice" value="2" hidden>
+                            </button>
+                            <button type="button">
+                                <label for="mondayHome">
+                                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="monHome">
+                                </label>
+                                <input type="radio" name="monday" id="mondayHome" value="1" hidden>
+                            </button>
+                    <?php endif; ?>
             </div>
         </li>
         <li class="list-group-item text-light d-flex justify-content-between">
             <div class="day">UTORAK</div>
             <div class="buttons">
-                <button type="button">
-                    <label for="tuesdayOffice">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="tueOffice">
-                    </label>
-                    <input type="radio" name="tuesday" id="tuesdayOffice" value="2" hidden>
-                </button>
-                <button type="button">
-                    <label for="tuesdayHome">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="tueHome">
-                    </label>
-                    <input type="radio" name="tuesday" id="tuesdayHome" value="1" hidden>
-                </button>
+                <?php if (isset($userSchedule) && !empty($userSchedule->utorak)): ?>
+                    <?php if ($userSchedule->utorak === "1"): ?>
+                        <button type="button">
+                            <label for="tuesdayOffice">
+                                <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="tueOffice">
+                            </label>
+                            <input type="radio" name="tuesday" id="tuesdayOffice" value="2" hidden>
+                        </button>
+                        <button type="button">
+                            <label for="tuesdayHome">
+                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>" id="tueHome">
+                            </label>
+                            <input type="radio" name="tuesday" id="tuesdayHome" value="1" checked hidden>
+                        </button>
+                    <?php elseif ($userSchedule->utorak === "2"): ?>
+                        <button type="button">
+                            <label for="tuesdayOffice">
+                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>" id="tueOffice">
+                            </label>
+                            <input type="radio" name="tuesday" id="tuesdayOffice" value="2" checked hidden>
+                        </button>
+                        <button type="button">
+                            <label for="tuesdayHome">
+                                <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="tueHome">
+                            </label>
+                            <input type="radio" name="tuesday" id="tuesdayHome" value="1" hidden>
+                        </button>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <button type="button">
+                        <label for="tuesdayOffice">
+                            <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="tueOffice">
+                        </label>
+                        <input type="radio" name="tuesday" id="tuesdayOffice" value="2" hidden>
+                    </button>
+                    <button type="button">
+                        <label for="tuesdayHome">
+                            <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="tueHome">
+                        </label>
+                        <input type="radio" name="tuesday" id="tuesdayHome" value="1" hidden>
+                    </button>
+                <?php endif; ?>
             </div>
         </li>
         <li class="list-group-item text-light d-flex justify-content-between">
             <div class="day">SREDA</div>
             <div class="buttons">
-                <button type="button">
-                    <label for="wednesdayOffice">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="wedOffice">
-                    </label>
-                    <input type="radio" name="wednesday" id="wednesdayOffice" value="2" hidden>
-                </button>
-                <button type="button">
-                    <label for="wednesdayHome">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="wedHome">
-                    </label>
-                    <input type="radio" name="wednesday" id="wednesdayHome" value="1" hidden>
-                </button>
+                <?php if (isset($userSchedule) && !empty($userSchedule->sreda)): ?>
+                    <?php if ($userSchedule->sreda === "1"): ?>
+                        <button type="button">
+                            <label for="wednesdayOffice">
+                                <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="wedOffice">
+                            </label>
+                            <input type="radio" name="wednesday" id="wednesdayOffice" value="2" hidden>
+                        </button>
+                        <button type="button">
+                            <label for="wednesdayHome">
+                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>" id="wedHome">
+                            </label>
+                            <input type="radio" name="wednesday" id="wednesdayHome" value="1" checked hidden>
+                        </button>
+                    <?php elseif ($userSchedule->sreda === "2"): ?>
+                        <button type="button">
+                            <label for="wednesdayOffice">
+                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>" id="wedOffice">
+                            </label>
+                            <input type="radio" name="wednesday" id="wednesdayOffice" value="2" checked hidden>
+                        </button>
+                        <button type="button">
+                            <label for="wednesdayHome">
+                                <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="wedHome">
+                            </label>
+                            <input type="radio" name="wednesday" id="wednesdayHome" value="1" hidden>
+                        </button>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <button type="button">
+                        <label for="wednesdayOffice">
+                            <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="wedOffice">
+                        </label>
+                        <input type="radio" name="wednesday" id="wednesdayOffice" value="2" hidden>
+                    </button>
+                    <button type="button">
+                        <label for="wednesdayHome">
+                            <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="wedHome">
+                        </label>
+                        <input type="radio" name="wednesday" id="wednesdayHome" value="1" hidden>
+                    </button>
+                <?php endif; ?>
             </div>
         </li>
         <li class="list-group-item text-light d-flex justify-content-between">
             <div class="day">ČETVRTAK</div>
             <div class="buttons">
-                <button type="button">
-                    <label for="thursdayOffice">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="thuOffice">
-                    </label>
-                    <input type="radio" name="thursday" id="thursdayOffice" value="2" hidden>
-                </button>
-                <button type="button">
-                    <label for="thursdayHome">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="thuHome">
-                    </label>
-                    <input type="radio" name="thursday" id="thursdayHome" value="1" hidden>
-                </button>
+                <?php if (isset($userSchedule) && !empty($userSchedule->cetvrtak)): ?>
+                    <?php if ($userSchedule->cetvrtak === "1"): ?>
+                        <button type="button">
+                            <label for="thursdayOffice">
+                                <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="thuOffice">
+                            </label>
+                            <input type="radio" name="thursday" id="thursdayOffice" value="2" hidden>
+                        </button>
+                        <button type="button">
+                            <label for="thursdayHome">
+                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>" id="thuHome">
+                            </label>
+                            <input type="radio" name="thursday" id="thursdayHome" value="1" checked hidden>
+                        </button>
+                    <?php elseif ($userSchedule->cetvrtak === "2"): ?>
+                        <button type="button">
+                            <label for="thursdayOffice">
+                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>" id="thuOffice">
+                            </label>
+                            <input type="radio" name="thursday" id="thursdayOffice" value="2" checked hidden>
+                        </button>
+                        <button type="button">
+                            <label for="thursdayHome">
+                                <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="thuHome">
+                            </label>
+                            <input type="radio" name="thursday" id="thursdayHome" value="1" hidden>
+                        </button>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <button type="button">
+                        <label for="thursdayOffice">
+                            <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="thuOffice">
+                        </label>
+                        <input type="radio" name="thursday" id="thursdayOffice" value="2" hidden>
+                    </button>
+                    <button type="button">
+                        <label for="thursdayHome">
+                            <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="thuHome">
+                        </label>
+                        <input type="radio" name="thursday" id="thursdayHome" value="1" hidden>
+                    </button>
+                <?php endif; ?>
             </div>
         </li>
         <li class="list-group-item text-light d-flex justify-content-between">
             <div class="day">PETAK</div>
             <div class="buttons">
-                <button type="button">
-                    <label for="fridayOffice">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="friOffice">
-                    </label>
-                    <input type="radio" name="friday" id="fridayOffice" value="2" hidden>
-                </button>
-                <button type="button">
-                    <label for="fridayHome">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="friHome">
-                    </label>
-                    <input type="radio" name="friday" id="fridayHome" value="1" hidden>
-                </button>
+                <?php if (isset($userSchedule) && !empty($userSchedule->petak)): ?>
+                    <?php if ($userSchedule->petak === "1"): ?>
+                        <button type="button">
+                            <label for="fridayOffice">
+                                <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="friOffice">
+                            </label>
+                            <input type="radio" name="friday" id="fridayOffice" value="2" hidden>
+                        </button>
+                        <button type="button">
+                            <label for="fridayHome">
+                                <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>" id="friHome">
+                            </label>
+                            <input type="radio" name="friday" id="fridayHome" value="1" checked hidden>
+                        </button>
+                    <?php elseif ($userSchedule->petak === "2"): ?>
+                        <button type="button">
+                            <label for="fridayOffice">
+                                <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>" id="friOffice">
+                            </label>
+                            <input type="radio" name="friday" id="fridayOffice" value="2" checked hidden>
+                        </button>
+                        <button type="button">
+                            <label for="fridayHome">
+                                <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="friHome">
+                            </label>
+                            <input type="radio" name="friday" id="fridayHome" value="1" hidden>
+                        </button>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <button type="button">
+                        <label for="fridayOffice">
+                            <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="friOffice">
+                        </label>
+                        <input type="radio" name="friday" id="fridayOffice" value="2" hidden>
+                    </button>
+                    <button type="button">
+                        <label for="fridayHome">
+                            <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="friHome">
+                        </label>
+                        <input type="radio" name="friday" id="fridayHome" value="1" hidden>
+                    </button>
+                <?php endif; ?>
             </div>
         </li>
     </ul>

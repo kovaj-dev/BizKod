@@ -17,16 +17,6 @@ export const checkinSchedule = () =>
 {
     document.querySelector('#submitSchedule').addEventListener('click', () => {
         submitChosenValuesForSchedule();
-        document.querySelector('#monOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
-        document.querySelector('#monHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
-        document.querySelector('#tueOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
-        document.querySelector('#tueHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
-        document.querySelector('#wedOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
-        document.querySelector('#wedHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
-        document.querySelector('#thuOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
-        document.querySelector('#thuHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
-        document.querySelector('#friOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
-        document.querySelector('#friHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
     });
 }
 

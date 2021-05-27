@@ -197,4 +197,20 @@ class ScheduleModel implements ModelInterface
             return false;
         }
     }
+
+    public function selectFutureScheduleForUser($userId)
+    {
+        try {
+            $sql = "SELECT id_zaposlen, ponedeljak, utorak, sreda, cetvrtak, petak FROM raspored r
+                    JOIN nedelja n on n.id = r.id_raspored
+                    WHERE DATE_ADD(NOW(), INTERVAL 7 DAY) BETWEEN pocetak AND kraj
+                    AND id_zaposlen = :id";
+            $this->db->query($sql);
+            $this->db->bind(':id', $userId);
+            $this->db->execute();
+            return $this->db->getResult();
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
 }

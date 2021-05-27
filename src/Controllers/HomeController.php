@@ -6,16 +6,19 @@ use App\Libraries\Core\BaseController;
 use App\Libraries\Core\Response;
 use App\Libraries\Core\View;
 use App\Models\InfoModel;
+use App\Models\ScheduleModel;
 use App\Models\UserModel;
 
 class HomeController extends BaseController
 {
     private $userModel;
     private $infoModel;
+    private $scheduleModel;
     public function __construct()
     {
         $this->userModel = $this->model(new UserModel());
         $this->infoModel = $this->model(new InfoModel());
+        $this->scheduleModel = $this->model(new ScheduleModel());
     }
 
     public function index()
@@ -41,7 +44,15 @@ class HomeController extends BaseController
 
     public function checkinPage() {
         if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set") {
-            return new Response('home/checkinPage');
+            session_start();
+            $id = $_SESSION["user"]["id"];
+            $userSchedule = "";
+            if ($this->scheduleModel->selectUserExistInFutureSchedule($id) > 0) {
+                $userSchedule = $this->scheduleModel->selectFutureScheduleForUser($id);
+            }
+            return new Response('home/checkinPage', [
+                "userSchedule" => $userSchedule
+            ]);
         }
         return new Response('home/loginPage');
     }

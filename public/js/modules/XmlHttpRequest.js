@@ -43,7 +43,7 @@ export const submitChosenValuesForSchedule = () =>
     })
         .then((response) => {
             let data = response.data;
-            console.log(data);
+            location.reload();
         });
 }
 

@@ -53,7 +53,7 @@ class LoginController extends BaseController
         session_start();
         if (isset($_SESSION["user"])) {
             session_destroy();
-            header('Location: /bizkod');
+            header('Location: /bizkod/');
         }
     }
 }
