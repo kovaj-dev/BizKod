@@ -1,211 +1,245 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* NAVBAR */
-
 #header {
-    width: 100%;
-    height: auto;
-    z-index: 99;
-}
-.navbar-dark .navbar-toggler-icon {
-    background-image: url("../img/menu.png");
-    height: 37px;
-    width: 37px;
-}
-.navbar-toggler,
-.navbar-toggler:focus,
-.navbar-toggler:active,
-.navbar-toggler-icon:focus {
-    outline: none;
-    border: none;
-    box-shadow: none;
-}
-.nav-link {
-    color: #F0F0F0 !important;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 1rem 1rem;
+  width: 100%;
+  height: auto;
+  z-index: 99;
 }
 
-/* LOGIN PAGE */
-
-#loginForm {
-    width: 90%;
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 1rem;
-    text-align: center;
+.navbar-dark .navbar-toggler,
+.navbar-dark .navbar-toggler:focus,
+.navbar-dark .navbar-toggler:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+.navbar-dark .navbar-toggler .navbar-toggler-icon,
+.navbar-dark .navbar-toggler:focus .navbar-toggler-icon,
+.navbar-dark .navbar-toggler:active .navbar-toggler-icon {
+  background-image: url("../img/menu.png");
+  height: 37px;
+  width: 37px;
+}
+.navbar-dark .nav-link {
+  color: #F0F0F0 !important;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 1rem 1rem;
 }
 
-input[type="text"], input[type="password"] {
-    border: 5px solid #DFDFDF;
-    font-style: italic;
-}
-
-.login button[type="submit"], .checkin button[type="submit"] {
-    width: 80%;
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: #00AEEF;
-    border: none;
-    padding: 0.7rem;
-    margin: 0.7rem;
-    font-size: 1.1rem;
-}
-
+/* FOR ALL */
 .page-title {
-    font-weight: bold;
-    margin: 8rem 2rem 3rem 2rem;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 2rem;
-}
-
-/* TEAMS PAGE */
-
-.teams .card {
-    width: 10rem;
-    padding: 1rem;
-    text-align: center;
-    border-radius: 0.5rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-
-.teams .card-title {
-    font-size: 1.1rem;
+  font-weight: bold;
+  margin: 8rem 2rem 3rem 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+input[type=text], input[type=password] {
+  border: 5px solid #DFDFDF;
+  font-style: italic;
+}
+
+.login button[type=submit], .checkin button[type=submit] {
+  width: 80%;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #00AEEF;
+  border: none;
+  padding: 0.7rem;
+  margin: 0.7rem;
+  font-size: 1.1rem;
+}
+
+/* LOGIN PAGE */
+#loginForm {
+  width: 90%;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+/* TEAMS PAGE */
+.teams .card {
+  width: 10rem;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.teams .card .card-title {
+  font-size: 1.1rem;
 }
 
 /* SCHEDULE PAGE */
-
 .accordion .card {
-    margin: 1rem;
-    background-color: #353535;
+  margin: 1rem;
+  background-color: #353535;
 }
-
-.accordion .card-body {
-    background-color: #979797;
-    border: 5px solid #353535;
+.accordion .card .card-body {
+  background-color: #979797;
+  border: 5px solid #353535;
 }
-
+.accordion .card .card-body .list-group .list-group-item {
+  align-items: center;
+  text-align: center;
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid #353535;
+}
+.accordion .card .card-body .list-group .list-group-item h3 {
+  font-size: 1.1rem;
+}
+.accordion .card .card-body .list-group .list-group-item .picture img {
+  border-radius: 50%;
+}
+.accordion .card .card-body .list-group .list-group-item:last-of-type {
+  border-bottom: none;
+}
 .accordion button {
-    text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-    font-size: 1.2rem;
-}
-
-.list-group .list-group-item {
-    align-items:center;
-    text-align:center;
-    background-color: inherit;
-    border: none;
-    border-bottom: 2px solid #353535;
-}
-.list-group .list-group-item:last-of-type {
-    border-bottom: none;
-}
-
-.list-group .list-group-item h3 {
-    font-size:1.1rem;
-}
-
-.list-group .list-group-item .picture img {
-    border-radius: 50%;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  font-size: 1.2rem;
 }
 
 /* CHECKIN PAGE */
-
 .checkin .list-group {
-    width: 80%;
+  width: 80%;
 }
-
 .checkin .list-group .list-group-item {
-    background-color: #353535;
-    width: 100%;
-    margin: 0.4rem 0;
-    border-radius: 0.5rem;
+  background-color: #353535;
+  width: 100%;
+  margin: 0.4rem 0;
+  border-radius: 0.5rem;
 }
-
 .checkin .list-group .list-group-item .day {
-    margin: 0 2rem 0 0;
-    font-weight: bold;
+  margin: 0 2rem 0 0;
+  font-weight: bold;
 }
-
 .checkin .list-group .list-group-item button {
-    border: none;
-    background: inherit;
-    margin: 0 0.3rem;
+  border: none;
+  background: inherit;
+  margin: 0 0.3rem;
 }
-
 .checkin .list-group .list-group-item button img {
-    max-width: 40px;
+  max-width: 40px;
 }
 
 /* PROFILE PAGE */
-
-.profile-image img {
-    width: 170px;
-    border: 10px solid #DFDFDF;
-    border-radius: 1rem;
+.profile .profile-image img {
+  width: 170px;
+  border: 10px solid #DFDFDF;
+  border-radius: 1rem;
 }
-
 .profile span {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
-
-.info-title {
-    font-weight: bold;
+.profile .info-title {
+  font-weight: bold;
 }
-
-.change-password {
-    width: 85%;
+.profile .drop-form {
+  width: 85%;
 }
-
-.change-password .card .card-body {
-    background-color: #979797;
+.profile .drop-form .card .card-body {
+  background-color: #979797;
 }
-
-#passwordForm {
-    text-align: center;
+.profile .drop-form .card .card-body #passwordForm {
+  text-align: center;
 }
-.change-password .save {
-    width: 80%;
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: #00AEEF;
-    border: none;
-    font-size: 1.1rem;
+.profile .drop-form .card .card-body #passwordForm .save {
+  width: 80%;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #00AEEF;
+  border: none;
+  font-size: 1.1rem;
 }
 
 /* INFO PAGE */
-
-.news .change-password .card {
-    background-color: #ED0C6E;
+.news ul {
+  width: 80%;
+}
+.news ul li {
+  width: 50%;
+}
+.news ul li .nav-link {
+  color: #353535 !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.news .tab-content .tab-pane {
+  background-color: #FFFFFF;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #DEE2E6;
+  border-top: none;
+}
+.news .tab-content .tab-pane .card {
+  margin: 1rem 0;
+}
+.news .tab-content .tab-pane .card .card-header {
+  background-color: #353535;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.news .tab-content .tab-pane .card .card-body {
+  background-color: #D2D2D2;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.news .tab-content .tab-pane .card .card-body #collapseParagraph.collapsing {
+  height: 5.5rem;
+}
+.news .tab-content .tab-pane .card .card-body #collapseParagraph.collapse:not(.show) {
+  display: block;
+  height: 5.5rem;
+  overflow: hidden;
+}
+.news .tab-content .tab-pane .card .card-body .card-text {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+}
+.news .tab-content .tab-pane .card .card-body span {
+  font-style: italic;
+  margin-right: 1rem;
+}
+.news .drop-form {
+  width: 85%;
+  margin: 0 auto;
+}
+.news .drop-form .card {
+  background-color: #ED0C6E;
+}
+.news .drop-form .card .card-body {
+  border-color: #ED0C6E;
+}
+.news #newsForm {
+  text-align: center;
+}
+.news #newsForm textarea {
+  border: 5px solid #DFDFDF;
+  font-style: italic;
 }
 
-.news .change-password .card .card-body {
-    border-color: #ED0C6E;
-}
-
-#newsForm {
-    text-align: center;
-}
-
-#newsForm textarea {
-    border: 5px solid #DFDFDF;
-    font-style: italic;
-}
+/*# sourceMappingURL=main.css.map */

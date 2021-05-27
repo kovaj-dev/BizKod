@@ -5,14 +5,17 @@ namespace App\Controllers;
 use App\Libraries\Core\BaseController;
 use App\Libraries\Core\Response;
 use App\Libraries\Core\View;
+use App\Models\InfoModel;
 use App\Models\UserModel;
 
 class HomeController extends BaseController
 {
     private $userModel;
+    private $infoModel;
     public function __construct()
     {
         $this->userModel = $this->model(new UserModel());
+        $this->infoModel = $this->model(new InfoModel());
     }
 
     public function index()
@@ -52,8 +55,12 @@ class HomeController extends BaseController
 
     public function infoPage() {
         if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set") {
-            return new Response('home/infoPage');
+            $news = $this->infoModel->selectGeneralNews();
+            return new Response('home/infoPage', [
+                "news" => $news
+            ]);
         }
         return new Response('home/loginPage');
     }
+
 }
