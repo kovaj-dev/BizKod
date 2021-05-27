@@ -251,10 +251,10 @@ input[type="text"], input[type="password"] {
           background-color: #D2D2D2;
           font-size: 1rem;
           line-height: 1.5;
-          #collapseParagraph.collapsing {
+          .collapse-paragraph.collapsing {
             height: 5.5rem;
           }
-          #collapseParagraph.collapse:not(.show) {
+          .collapse-paragraph.collapse:not(.show) {
             display: block;
             height: 5.5rem;
             overflow: hidden;
@@ -280,16 +280,24 @@ input[type="text"], input[type="password"] {
 
       .card-body {
         border-color: #ED0C6E;
+
+        #newsForm {
+          text-align: center;
+          textarea {
+            border: 5px solid #DFDFDF;
+            font-style: italic;
+          }
+          .form-check {
+            margin: 0 1rem;
+            label {
+              color: #F0F0F0;
+              font-weight: bold;
+            }
+          }
+        }
       }
     }
   }
 
-  #newsForm {
-    text-align: center;
 
-    textarea {
-      border: 5px solid #DFDFDF;
-      font-style: italic;
-    }
-  }
 }

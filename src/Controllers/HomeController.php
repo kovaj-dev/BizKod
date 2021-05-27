@@ -61,8 +61,12 @@ class HomeController extends BaseController
     public function infoPage() {
         if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set") {
             $news = $this->infoModel->selectGeneralNews();
+            session_start();
+            $userId = $_SESSION["user"]["id"];
+            $teamnews = $this->infoModel->selectTeamNews($userId);
             return new Response('home/infoPage', [
-                "news" => $news
+                "news" => $news,
+                "teamnews" => $teamnews
             ]);
         }
         return new Response('home/loginPage');

@@ -208,10 +208,10 @@ input[type=text], input[type=password] {
   font-size: 1rem;
   line-height: 1.5;
 }
-.news .tab-content .tab-pane .card .card-body #collapseParagraph.collapsing {
+.news .tab-content .tab-pane .card .card-body .collapse-paragraph.collapsing {
   height: 5.5rem;
 }
-.news .tab-content .tab-pane .card .card-body #collapseParagraph.collapse:not(.show) {
+.news .tab-content .tab-pane .card .card-body .collapse-paragraph.collapse:not(.show) {
   display: block;
   height: 5.5rem;
   overflow: hidden;
@@ -234,12 +234,19 @@ input[type=text], input[type=password] {
 .news .drop-form .card .card-body {
   border-color: #ED0C6E;
 }
-.news #newsForm {
+.news .drop-form .card .card-body #newsForm {
   text-align: center;
 }
-.news #newsForm textarea {
+.news .drop-form .card .card-body #newsForm textarea {
   border: 5px solid #DFDFDF;
   font-style: italic;
+}
+.news .drop-form .card .card-body #newsForm .form-check {
+  margin: 0 1rem;
+}
+.news .drop-form .card .card-body #newsForm .form-check label {
+  color: #F0F0F0;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=main.css.map */
