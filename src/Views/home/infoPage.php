@@ -15,9 +15,9 @@
 </head>
 <body style="background-color: #F0F0F0">
 
-<!--<header id="header">
-    <?php /*require_once ROOT . "/Views/includes/navbar.php"; */?>
-</header>-->
+<header id="header">
+    <?php require_once ROOT . "/Views/includes/navbar.php"; ?>
+</header>
 
 <?php
 session_start();

@@ -1,4 +1,4 @@
-import {getChoosenValuesForSchedule} from "./DomContent.js";
+import {getChosenValuesForSchedule} from "./DomContent.js";
 
 export const validateLoginRequest = () =>
 {
@@ -27,9 +27,9 @@ export const validateLoginRequest = () =>
         })
 }
 
-export const submitChoosenValuesForSchedule = () =>
+export const submitChosenValuesForSchedule = () =>
 {
-    const values = getChoosenValuesForSchedule();
+    const values = getChosenValuesForSchedule();
     const params = new URLSearchParams();
     params.append('monday', values.monday);
     params.append('tuesday', values.tuesday);
@@ -44,5 +44,36 @@ export const submitChoosenValuesForSchedule = () =>
         .then((response) => {
             let data = response.data;
             console.log(data);
+        });
+}
+
+export const submitNewPasswordRequest = () =>
+{
+    const formData = new FormData(document.querySelector('#passwordForm'));
+    const oldPass = document.querySelector('#oldpass');
+    const newPass = document.querySelector('#newpass');
+    const confirmPass = document.querySelector('#confirmpass');
+    const message = document.querySelector('#confirmMessage');
+    axios({
+        method: 'post',
+        data: formData,
+        url: '/bizkod/newpassword'
+    })
+        .then((response) => {
+            let data = response.data;
+            if (data.status === "2") {
+                location.replace('/bizkod/');
+            } else if (data.status === "0"){
+                message.innerText = data.msg;
+                oldPass.classList.remove('is-valid');
+                oldPass.classList.add('is-invalid');
+                newPass.classList.remove('is-valid');
+                newPass.classList.add('is-invalid');
+                confirmPass.classList.remove('is-valid');
+                confirmPass.classList.add('is-invalid');
+            } else if (data.status === "1"){
+                message.innerText = data.msg;
+                message.style.color = 'green';
+            }
         });
 }

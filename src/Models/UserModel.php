@@ -40,4 +40,49 @@ class UserModel implements ModelInterface
             return false;
         }
     }
+
+    public function selectUserData($id)
+    {
+        try {
+            $sql = "SELECT email, ime, prezime, z.slika fotografija, t.naziv tim, k.naziv kancelarija, grad FROM zaposlen z
+                    JOIN tim t on t.id = z.id_tim
+                    JOIN kancelarija k on k.id = z.id_kancelarija
+                    WHERE z.id = :id";
+            $this->db->query($sql);
+            $this->db->bind(':id', $id);
+            $this->db->execute();
+            return $this->db->getResult();
+        } catch (\PDOException $e){
+            return false;
+        }
+    }
+
+    public function selectUserPassword($id)
+    {
+        try {
+            $sql = "SELECT sifra FROM zaposlen
+                    WHERE id = :id";
+            $this->db->query($sql);
+            $this->db->bind(':id', $id);
+            $this->db->execute();
+            return $this->db->getResult();
+        } catch (\PDOException $e){
+            return false;
+        }
+    }
+
+    public function changePassword($userId, $password)
+    {
+        try {
+            $sql = "UPDATE zaposlen
+                    SET sifra = :new
+                    WHERE id = :id";
+            $this->db->query($sql);
+            $this->db->bind(':new', $password);
+            $this->db->bind(':id', $userId);
+            return $this->db->execute();
+        } catch (\PDOException $e){
+            return false;
+        }
+    }
 }

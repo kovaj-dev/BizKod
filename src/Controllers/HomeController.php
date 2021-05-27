@@ -48,7 +48,12 @@ class HomeController extends BaseController
 
     public function profilePage() {
         if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set") {
-            return new Response('home/profilePage');
+            session_start();
+            $userId = $_SESSION["user"]["id"];
+            $userInfo = $this->userModel->selectUserData($userId);
+            return new Response('home/profilePage', [
+                "userInfo" => $userInfo
+            ]);
         }
         return new Response('home/loginPage');
     }

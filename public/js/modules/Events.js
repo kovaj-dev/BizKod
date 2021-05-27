@@ -1,6 +1,6 @@
-import {validateLogin} from "./Validation.js";
-import {getLoginForm} from "./DomContent.js";
-import {submitChoosenValuesForSchedule, validateLoginRequest} from "./XmlHttpRequest.js";
+import {validateLogin, validateNewPassword} from "./Validation.js";
+import {getChangePasswordForm, getLoginForm} from "./DomContent.js";
+import {submitChosenValuesForSchedule, submitNewPasswordRequest, validateLoginRequest} from "./XmlHttpRequest.js";
 
 export const userLogin = () =>
 {
@@ -16,7 +16,7 @@ export const userLogin = () =>
 export const checkinSchedule = () =>
 {
     document.querySelector('#submitSchedule').addEventListener('click', () => {
-        submitChoosenValuesForSchedule();
+        submitChosenValuesForSchedule();
         document.querySelector('#monOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
         document.querySelector('#monHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
         document.querySelector('#tueOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
@@ -97,4 +97,16 @@ export const toggleColors = () =>
             }
         });
     });
+}
+
+export const submitNewPassword = () =>
+{
+    document.querySelector('#passwordForm')
+        .addEventListener('submit', (e) => {
+            e.preventDefault();
+            const inputs = getChangePasswordForm();
+            if (validateNewPassword(inputs)){
+                submitNewPasswordRequest();
+            }
+        });
 }

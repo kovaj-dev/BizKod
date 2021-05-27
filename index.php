@@ -14,6 +14,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
     $r->addRoute('GET', '/profile', 'HomeController/profilePage');
     $r->addRoute('GET', '/logout', 'LoginController/logoutUser');
     $r->addRoute('POST', '/submitvalues', 'ScheduleController/submitNextScheduleValues');
+    $r->addRoute('POST', '/newpassword', 'UserController/changePassword');
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];

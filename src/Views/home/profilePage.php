@@ -20,20 +20,24 @@
 </header>
 
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_SESSION["user"])) : ?>
 
     <div class="container d-flex flex-column align-items-center profile mb-5">
         <h1 class="page-title">Tvoj profil</h1>
+        <?php if (isset($userInfo)): ?>
         <div class="profile-image mb-4">
-            <img src="<?php echo URLROOT . '/public/img/workers/female.png'?>" alt="Tvoja profilna slika">
+            <img src="<?php echo URLROOT . '/public/img/workers/' . $userInfo->fotografija; ?>" alt="Tvoja profilna slika">
         </div>
         <div class="profile-data">
-            <span class="info-title">Email:</span> <span class="info-data">hanagasparic@infostud.com</span> <br>
-            <span class="info-title">Ime i prezime:</span> <span class="info-data">Hana Gasparic</span> <br>
-            <span class="info-title">Kancelarija:</span> <span class="info-data">Infostud 1, Subotica</span> <br>
-            <span class="info-title">Tim:</span> <span class="info-data">Poslovi</span> <br>
+            <span class="info-title">Email:</span> <span class="info-data"><?php echo $userInfo->email; ?></span> <br>
+            <span class="info-title">Ime i prezime:</span> <span class="info-data"><?php echo $userInfo->ime . ' ' . $userInfo->prezime; ?></span> <br>
+            <span class="info-title">Kancelarija:</span> <span class="info-data"><?php echo $userInfo->kancelarija . ', ' . $userInfo->grad; ?></span> <br>
+            <span class="info-title">Tim:</span> <span class="info-data"><?php echo $userInfo->tim; ?></span> <br>
         </div>
+        <?php endif; ?>
         <div class="drop-form accordion mt-4" id="accordionExample">
             <div class="card">
                 <div class="card-header" id="headingOne">
@@ -47,8 +51,11 @@ if (isset($_SESSION["user"])) : ?>
                     <div class="card-body">
                         <form id="passwordForm" action="">
                             <input type="password" class="form-control mb-3" name="oldpass" id="oldpass" placeholder="Trenutna lozinka">
+                            <p id="oldMessage" style="color: red; font-weight: bold;"></p>
                             <input type="password" class="form-control mb-3" name="newpass" id="newpass" placeholder="Nova lozinka">
+                            <p id="newMessage" style="color: red; font-weight: bold;"></p>
                             <input type="password" class="form-control mb-3" name="confirmpass" id="confirmpass" placeholder="Potvrdi novu lozinku">
+                            <p id="confirmMessage" style="color: red; font-weight: bold;"></p>
                             <button type="submit" class="btn btn-primary save">Sačuvaj</button>
                         </form>
                     </div>
@@ -70,4 +77,5 @@ if (isset($_SESSION["user"])) : ?>
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="module" src="<?php echo URLROOT; ?>/public/js/scripts/profileApp.js"></script>
 </html>

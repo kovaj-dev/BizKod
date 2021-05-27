@@ -10,7 +10,7 @@ export const getLoginForm = () =>
     }
 }
 
-export const getChoosenValuesForSchedule = () =>
+export const getChosenValuesForSchedule = () =>
 {
     const monday = document.getElementsByName("monday");
     const thursday = document.getElementsByName("thursday");
@@ -59,5 +59,18 @@ export const getChoosenValuesForSchedule = () =>
         wednesday: wednesdayValue,
         thursday: thursdayValue,
         friday: fridayValue
+    }
+}
+
+export const getChangePasswordForm = () => {
+    const form = document.querySelector('#passwordForm');
+    const oldPassword = form.querySelector('#oldpass');
+    const newPassword = form.querySelector('#newpass');
+    const confirmPassword = form.querySelector('#confirmpass');
+
+    return {
+        old: { node: oldPassword, value: oldPassword.value },
+        new: { node: newPassword, value: newPassword.value },
+        confirm: { node: confirmPassword, value: confirmPassword.value }
     }
 }
