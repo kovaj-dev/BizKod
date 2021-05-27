@@ -75,9 +75,11 @@ class HomeController extends BaseController
             session_start();
             $userId = $_SESSION["user"]["id"];
             $teamnews = $this->infoModel->selectTeamNews($userId);
+            $teamid = $this->infoModel->selectUserTeam($userId);
             return new Response('home/infoPage', [
                 "news" => $news,
-                "teamnews" => $teamnews
+                "teamnews" => $teamnews,
+                "teamid" => $teamid
             ]);
         }
         return new Response('home/loginPage');

@@ -118,3 +118,23 @@ export const validateNewPassword = (inputs) =>
 
     return isValid;
 }
+
+export const validateNewsForm = (inputs) => {
+    let isValid = true;
+    if (inputs.title.value.trim().length < 1) {
+        setInvalid(inputs.title.node);
+        isValid = false;
+    }
+    else {
+        setValid(inputs.title.node);
+    }
+    if (inputs.desc.value.trim().length < 1) {
+        setInvalid(inputs.desc.node);
+        isValid = false;
+    }
+    else {
+        setValid(inputs.desc.node);
+    }
+
+    return isValid;
+}

@@ -10,6 +10,14 @@ body {
 }
 
 /* NAVBAR */
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.7rem;
+  margin-top: -50px;
+}
+
 #header {
   width: 100%;
   height: auto;
@@ -34,7 +42,7 @@ body {
   color: #F0F0F0 !important;
   font-weight: bold;
   font-size: 1.1rem;
-  padding: 1rem 1rem;
+  padding: 0.7rem 1rem;
 }
 
 /* FOR ALL */

@@ -82,6 +82,8 @@ if (isset($_SESSION["user"])) : ?>
             </div>
             <?php endif; ?>
         </div>
+
+        <?php if($_SESSION["user"]["role"] === "1"): ?>
         <div class="drop-form accordion mt-4" id="accordionExample">
             <div class="card">
                 <div class="card-header" id="headingOne">
@@ -95,7 +97,7 @@ if (isset($_SESSION["user"])) : ?>
                     <div class="card-body">
                         <form id="newsForm" action="">
                             <input type="text" class="form-control mb-3" name="title" id="title" placeholder="Naslov vesti">
-                            <textarea class="form-control mb-3" id="description" rows="5" placeholder="Opis vesti..."></textarea>
+                            <textarea class="form-control mb-3" name="description" id="description" rows="5" placeholder="Opis vesti..."></textarea>
                             <div class="form-check" style="display: inline-block">
                                 <input class="form-check-input" type="radio" name="newsfor" id="forall" value="0" checked>
                                 <label class="form-check-label" for="forall">
@@ -103,7 +105,7 @@ if (isset($_SESSION["user"])) : ?>
                                 </label>
                             </div>
                             <div class="form-check" style="display: inline-block">
-                                <input class="form-check-input" type="radio" name="newsfor" id="forteam" value="<?= $teamnews[0]->idtima ?>">
+                                <input class="form-check-input" type="radio" name="newsfor" id="forteam" value="<?= $teamid->id ?>">
                                 <label class="form-check-label" for="forteam">
                                     Za tim
                                 </label>
@@ -114,6 +116,7 @@ if (isset($_SESSION["user"])) : ?>
                 </div>
             </div>
         </div>
+        <?php endif; ?>
     </div>
 
 <?php else: ?>
@@ -121,6 +124,7 @@ if (isset($_SESSION["user"])) : ?>
     header('Location: /bizkod/');
     ?>
 <?php endif;  ?>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -129,4 +133,7 @@ if (isset($_SESSION["user"])) : ?>
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<?php if(isset($_SESSION["user"]) && $_SESSION["user"]["role"] === "1"): ?>
+<script type="module" src="<?php echo URLROOT; ?>/public/js/scripts/infoApp.js"></script>
+<?php endif; ?>
 </html>

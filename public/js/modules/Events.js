@@ -1,6 +1,11 @@
-import {validateLogin, validateNewPassword} from "./Validation.js";
-import {getChangePasswordForm, getLoginForm} from "./DomContent.js";
-import {submitChosenValuesForSchedule, submitNewPasswordRequest, validateLoginRequest} from "./XmlHttpRequest.js";
+import {validateLogin, validateNewPassword, validateNewsForm} from "./Validation.js";
+import {getChangePasswordForm, getLoginForm, getNewsInsertForm} from "./DomContent.js";
+import {
+    submitChosenValuesForSchedule,
+    submitNewPasswordRequest,
+    submitNewsFormRequest,
+    validateLoginRequest
+} from "./XmlHttpRequest.js";
 
 export const userLogin = () =>
 {
@@ -97,6 +102,18 @@ export const submitNewPassword = () =>
             const inputs = getChangePasswordForm();
             if (validateNewPassword(inputs)){
                 submitNewPasswordRequest();
+            }
+        });
+}
+
+export const submitNewsInsert = () =>
+{
+    document.querySelector('#newsForm')
+        .addEventListener('submit', (e) => {
+            e.preventDefault();
+            const inputs = getNewsInsertForm();
+            if (validateNewsForm(inputs)) {
+                submitNewsFormRequest();
             }
         });
 }
