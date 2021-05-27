@@ -1,3 +1,5 @@
+import {getChoosenValuesForSchedule} from "./DomContent.js";
+
 export const validateLoginRequest = () =>
 {
     const form = document.querySelector('#loginForm');
@@ -23,4 +25,24 @@ export const validateLoginRequest = () =>
                 email.classList.add('is-invalid');
             }
         })
+}
+
+export const submitChoosenValuesForSchedule = () =>
+{
+    const values = getChoosenValuesForSchedule();
+    const params = new URLSearchParams();
+    params.append('monday', values.monday);
+    params.append('tuesday', values.tuesday);
+    params.append('wednesday', values.wednesday);
+    params.append('thursday', values.thursday);
+    params.append('friday', values.friday);
+    axios({
+        method: 'post',
+        data: params,
+        url: '/bizkod/submitvalues'
+    })
+        .then((response) => {
+            let data = response.data;
+            console.log(data);
+        });
 }

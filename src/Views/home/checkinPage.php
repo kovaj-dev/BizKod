@@ -30,10 +30,16 @@ if (isset($_SESSION["user"])) : ?>
             <div class="day">PONEDELJAK</div>
             <div class="buttons">
                 <button type="button">
-                    <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>">
+                    <label for="mondayOffice">
+                        <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="monOffice">
+                    </label>
+                    <input type="radio" name="monday" id="mondayOffice" value="2" hidden>
                 </button>
                 <button type="button">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>">
+                    <label for="mondayHome">
+                        <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="monHome">
+                    </label>
+                    <input type="radio" name="monday" id="mondayHome" value="1" hidden>
                 </button>
             </div>
         </li>
@@ -41,10 +47,16 @@ if (isset($_SESSION["user"])) : ?>
             <div class="day">UTORAK</div>
             <div class="buttons">
                 <button type="button">
-                    <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>">
+                    <label for="tuesdayOffice">
+                    <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="tueOffice">
+                    </label>
+                    <input type="radio" name="tuesday" id="tuesdayOffice" value="2" hidden>
                 </button>
                 <button type="button">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>">
+                    <label for="tuesdayHome">
+                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="tueHome">
+                    </label>
+                    <input type="radio" name="tuesday" id="tuesdayHome" value="1" hidden>
                 </button>
             </div>
         </li>
@@ -52,10 +64,16 @@ if (isset($_SESSION["user"])) : ?>
             <div class="day">SREDA</div>
             <div class="buttons">
                 <button type="button">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>">
+                    <label for="wednesdayOffice">
+                    <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="wedOffice">
+                    </label>
+                    <input type="radio" name="wednesday" id="wednesdayOffice" value="2" hidden>
                 </button>
                 <button type="button">
-                    <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>">
+                    <label for="wednesdayHome">
+                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="wedHome">
+                    </label>
+                    <input type="radio" name="wednesday" id="wednesdayHome" value="1" hidden>
                 </button>
             </div>
         </li>
@@ -63,10 +81,16 @@ if (isset($_SESSION["user"])) : ?>
             <div class="day">ČETVRTAK</div>
             <div class="buttons">
                 <button type="button">
-                    <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>">
+                    <label for="thursdayOffice">
+                    <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="thuOffice">
+                    </label>
+                    <input type="radio" name="thursday" id="thursdayOffice" value="2" hidden>
                 </button>
                 <button type="button">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>">
+                    <label for="thursdayHome">
+                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="thuHome">
+                    </label>
+                    <input type="radio" name="thursday" id="thursdayHome" value="1" hidden>
                 </button>
             </div>
         </li>
@@ -74,15 +98,21 @@ if (isset($_SESSION["user"])) : ?>
             <div class="day">PETAK</div>
             <div class="buttons">
                 <button type="button">
-                    <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>">
+                    <label for="fridayOffice">
+                    <img src="<?php echo URLROOT . '/public/img/icons/defaultoffice.svg'; ?>" id="friOffice">
+                    </label>
+                    <input type="radio" name="friday" id="fridayOffice" value="2" hidden>
                 </button>
                 <button type="button">
-                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>">
+                    <label for="fridayHome">
+                    <img src="<?php echo URLROOT . '/public/img/icons/defaulthome.svg'; ?>" id="friHome">
+                    </label>
+                    <input type="radio" name="friday" id="fridayHome" value="1" hidden>
                 </button>
             </div>
         </li>
     </ul>
-    <button type="submit" class="btn btn-primary">Sačuvaj</button>
+    <button type="submit" id="submitSchedule" class="btn btn-primary">Sačuvaj</button>
 </div>
 
 <?php else: ?>
@@ -98,4 +128,5 @@ if (isset($_SESSION["user"])) : ?>
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="module" src="<?php echo URLROOT; ?>/public/js/scripts/checkinApp.js"></script>
 </html>

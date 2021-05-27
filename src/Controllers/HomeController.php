@@ -27,21 +27,33 @@ class HomeController extends BaseController
 
     public function homePage()
     {
-        $teams = $this->userModel->selectTeams();
-        return new Response('home/homePage', [
-            "teams" => $teams
-        ]);
+        if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set") {
+            $teams = $this->userModel->selectTeams();
+            return new Response('home/homePage', [
+                "teams" => $teams
+            ]);
+        }
+        return new Response('home/loginPage');
     }
 
     public function checkinPage() {
-        return new Response('home/checkinPage');
+        if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set") {
+            return new Response('home/checkinPage');
+        }
+        return new Response('home/loginPage');
     }
 
     public function profilePage() {
-        return new Response('home/profilePage');
+        if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set") {
+            return new Response('home/profilePage');
+        }
+        return new Response('home/loginPage');
     }
 
     public function infoPage() {
-        return new Response('home/infoPage');
+        if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set") {
+            return new Response('home/infoPage');
+        }
+        return new Response('home/loginPage');
     }
 }

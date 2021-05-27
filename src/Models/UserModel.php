@@ -19,7 +19,7 @@ class UserModel implements ModelInterface
     public function selectUserExist($email)
     {
         try {
-            $sql = "SELECT email, sifra FROM zaposlen WHERE email = :email";
+            $sql = "SELECT id, email, sifra FROM zaposlen WHERE email = :email";
             $this->db->query($sql);
             $this->db->bind(':email', $email);
             $this->db->execute();

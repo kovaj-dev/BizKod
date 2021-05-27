@@ -1,6 +1,6 @@
 import {validateLogin} from "./Validation.js";
 import {getLoginForm} from "./DomContent.js";
-import {validateLoginRequest} from "./XmlHttpRequest.js";
+import {submitChoosenValuesForSchedule, validateLoginRequest} from "./XmlHttpRequest.js";
 
 export const userLogin = () =>
 {
@@ -13,13 +13,88 @@ export const userLogin = () =>
     });
 }
 
-/*
-export const showTeamSchedule = () =>
+export const checkinSchedule = () =>
 {
-    const links = document.querySelectorAll('.teamSchedule');
-    links.forEach((link) => {
-        link.addEventListener('click', () => {
+    document.querySelector('#submitSchedule').addEventListener('click', () => {
+        submitChoosenValuesForSchedule();
+        document.querySelector('#monOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
+        document.querySelector('#monHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
+        document.querySelector('#tueOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
+        document.querySelector('#tueHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
+        document.querySelector('#wedOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
+        document.querySelector('#wedHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
+        document.querySelector('#thuOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
+        document.querySelector('#thuHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
+        document.querySelector('#friOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
+        document.querySelector('#friHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
+    });
+}
 
+export const toggleColors = () =>
+{
+    const monday = document.getElementsByName("monday");
+    const thursday = document.getElementsByName("thursday");
+    const wednesday = document.getElementsByName("wednesday");
+    const tuesday = document.getElementsByName("tuesday");
+    const friday = document.getElementsByName("friday");
+
+    monday.forEach((radio) => {
+        radio.addEventListener('click', () => {
+            if (radio.value === "1"){
+                document.querySelector('#monOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
+                document.querySelector('#monHome').src = 'http://localhost/bizkod//public/img/icons/bluehome.svg';
+            } else if (radio.value === "2"){
+                document.querySelector('#monOffice').src = 'http://localhost/bizkod//public/img/icons/pinkoffice.svg';
+                document.querySelector('#monHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
+            }
         });
     });
-}*/
+
+    tuesday.forEach((radio) => {
+        radio.addEventListener('click', () => {
+            if (radio.value === "1"){
+                document.querySelector('#tueOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
+                document.querySelector('#tueHome').src = 'http://localhost/bizkod//public/img/icons/bluehome.svg';
+            } else if (radio.value === "2"){
+                document.querySelector('#tueOffice').src = 'http://localhost/bizkod//public/img/icons/pinkoffice.svg';
+                document.querySelector('#tueHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
+            }
+        });
+    });
+
+    wednesday.forEach((radio) => {
+        radio.addEventListener('click', () => {
+            if (radio.value === "1"){
+                document.querySelector('#wedOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
+                document.querySelector('#wedHome').src = 'http://localhost/bizkod//public/img/icons/bluehome.svg';
+            } else if (radio.value === "2"){
+                document.querySelector('#wedOffice').src = 'http://localhost/bizkod//public/img/icons/pinkoffice.svg';
+                document.querySelector('#wedHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
+            }
+        });
+    });
+
+    thursday.forEach((radio) => {
+        radio.addEventListener('click', () => {
+            if (radio.value === "1"){
+                document.querySelector('#thuOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
+                document.querySelector('#thuHome').src = 'http://localhost/bizkod//public/img/icons/bluehome.svg';
+            } else if (radio.value === "2"){
+                document.querySelector('#thuOffice').src = 'http://localhost/bizkod//public/img/icons/pinkoffice.svg';
+                document.querySelector('#thuHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
+            }
+        });
+    });
+
+    friday.forEach((radio) => {
+        radio.addEventListener('click', () => {
+            if (radio.value === "1"){
+                document.querySelector('#friOffice').src = 'http://localhost/bizkod//public/img/icons/defaultoffice.svg';
+                document.querySelector('#friHome').src = 'http://localhost/bizkod//public/img/icons/bluehome.svg';
+            } else if (radio.value === "2"){
+                document.querySelector('#friOffice').src = 'http://localhost/bizkod//public/img/icons/pinkoffice.svg';
+                document.querySelector('#friHome').src = 'http://localhost/bizkod//public/img/icons/defaulthome.svg';
+            }
+        });
+    });
+}
