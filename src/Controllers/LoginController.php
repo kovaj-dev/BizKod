@@ -40,7 +40,7 @@ class LoginController extends BaseController
                     $interval = $this->scheduleModel->selectFutureScheduleInterval();
                     $this->scheduleModel->generateFutureSchedule($interval->nextStart, $interval->nextEnd);
                 }
-                $_SESSION["user"] = ["id" => $data->id, "email" => $email];
+                $_SESSION["user"] = ["id" => $data->id, "email" => $email, "role" => $data->id_uloga];
                 return new JsonResponse(["status" => "2", "msg" => "uspešan login"]);
             }
             return new JsonResponse(["status" => "1", "msg" => "Pogrešan email ili lozinka"]);

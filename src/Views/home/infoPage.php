@@ -82,6 +82,8 @@ if (isset($_SESSION["user"])) : ?>
             </div>
             <?php endif; ?>
         </div>
+
+        <?php if($_SESSION["user"]["role"] === "1"): ?>
         <div class="drop-form accordion mt-4" id="accordionExample">
             <div class="card">
                 <div class="card-header" id="headingOne">
@@ -114,6 +116,7 @@ if (isset($_SESSION["user"])) : ?>
                 </div>
             </div>
         </div>
+        <?php endif; ?>
     </div>
 
 <?php else: ?>
@@ -130,5 +133,7 @@ if (isset($_SESSION["user"])) : ?>
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<?php if(isset($_SESSION["user"]) && $_SESSION["user"]["role"] === "1"): ?>
 <script type="module" src="<?php echo URLROOT; ?>/public/js/scripts/infoApp.js"></script>
+<?php endif; ?>
 </html>

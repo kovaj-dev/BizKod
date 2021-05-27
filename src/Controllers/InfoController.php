@@ -21,7 +21,7 @@ class InfoController extends BaseController
         $title = trim($_POST['title']);
         $desc = trim($_POST['description']);
         $newsfor = $_POST['newsfor'];
-        if (!empty($title) && !empty($desc) && !empty($newsfor))
+        if (!empty($title) && !empty($desc) && (!empty($newsfor) || $newsfor === "0"))
         {
             if($this->infoModel->insertNews($title, $desc, $newsfor)) {
                 return new JsonResponse(['status'=>"0"]);
