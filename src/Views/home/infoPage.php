@@ -96,7 +96,19 @@ if (isset($_SESSION["user"])) : ?>
                         <form id="newsForm" action="">
                             <input type="text" class="form-control mb-3" name="title" id="title" placeholder="Naslov vesti">
                             <textarea class="form-control mb-3" id="description" rows="5" placeholder="Opis vesti..."></textarea>
-                            <button type="submit" class="btn btn-primary save" style="background-color: #ED0C6E">Sačuvaj</button>
+                            <div class="form-check" style="display: inline-block">
+                                <input class="form-check-input" type="radio" name="newsfor" id="forall" value="0" checked>
+                                <label class="form-check-label" for="forall">
+                                    Za sve
+                                </label>
+                            </div>
+                            <div class="form-check" style="display: inline-block">
+                                <input class="form-check-input" type="radio" name="newsfor" id="forteam" value="<?= $teamnews[0]->idtima ?>">
+                                <label class="form-check-label" for="forteam">
+                                    Za tim
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary save mt-3" style="background-color: #ED0C6E">Sačuvaj</button>
                         </form>
                     </div>
                 </div>

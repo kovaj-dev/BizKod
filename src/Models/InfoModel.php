@@ -32,7 +32,7 @@ class InfoModel implements ModelInterface
     public function selectTeamNews($userId)
     {
         try {
-            $sql = "SELECT v.id idvesti, naslov, opis, vreme
+            $sql = "SELECT v.id idvesti, naslov, opis, vreme, t.id idtima
                     FROM vesti v
                     JOIN tim t ON v.id_tim = t.id
                     JOIN zaposlen z on t.id = z.id_tim
