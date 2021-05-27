@@ -34,7 +34,7 @@ if (isset($_SESSION["user"])) : ?>
             <span class="info-title">Kancelarija:</span> <span class="info-data">Infostud 1, Subotica</span> <br>
             <span class="info-title">Tim:</span> <span class="info-data">Poslovi</span> <br>
         </div>
-        <div class="change-password accordion mt-4" id="accordionExample">
+        <div class="drop-form accordion mt-4" id="accordionExample">
             <div class="card">
                 <div class="card-header" id="headingOne">
                     <h2 class="mb-0">
