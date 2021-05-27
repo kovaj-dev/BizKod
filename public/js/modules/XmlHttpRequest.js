@@ -77,3 +77,20 @@ export const submitNewPasswordRequest = () =>
             }
         });
 }
+
+export const submitNewsFormRequest = () =>
+{
+    const formData = new FormData(document.querySelector('#newsForm'));
+    axios({
+        method: 'post',
+        data: formData,
+        url: '/bizkod/insertnews'
+    })
+        .then((response) => {
+            let data = response.data;
+            if (data.status === "0")
+            {
+                location.reload();
+            }
+        })
+}

@@ -74,3 +74,21 @@ export const getChangePasswordForm = () => {
         confirm: { node: confirmPassword, value: confirmPassword.value }
     }
 }
+
+export const getNewsInsertForm = () => {
+    const form = document.getElementById('newsForm');
+    const title = document.getElementById('title');
+    const desc = document.getElementById('description');
+    const radios = document.getElementsByName('newsfor');
+    let radioValue = "";
+    radios.forEach((radio) => {
+        if (radio.checked) {
+            radioValue = radio.value;
+        }
+    });
+    return {
+        title: { node: title, value: title.value },
+        desc: { node: desc, value: desc.value },
+        radioValue
+    }
+}
