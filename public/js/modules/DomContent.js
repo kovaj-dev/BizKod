@@ -10,7 +10,7 @@ export const getLoginForm = () =>
     }
 }
 
-export const getChoosenValuesForSchedule = () =>
+export const getChosenValuesForSchedule = () =>
 {
     const monday = document.getElementsByName("monday");
     const thursday = document.getElementsByName("thursday");

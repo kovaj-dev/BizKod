@@ -15,17 +15,18 @@
 </head>
 <body style="background-color: #F0F0F0">
 
-<!--<header id="header">
-    <?php /*require_once ROOT . "/Views/includes/navbar.php"; */?>
-</header>-->
+<header id="header">
+    <?php require_once ROOT . "/Views/includes/navbar.php"; ?>
+</header>
 
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_SESSION["user"])) : ?>
 
     <div class="container d-flex flex-column align-items-center news mb-5">
 
-        <?php if(isset($news)): ?>
         <h1 class="page-title">Vazne informacije</h1>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -36,6 +37,8 @@ if (isset($_SESSION["user"])) : ?>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
+            <?php
+            if(isset($news)): ?>
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <?php foreach ($news as $item): ?>
                 <div class="card">
@@ -43,40 +46,41 @@ if (isset($_SESSION["user"])) : ?>
                         <?= $item->naslov ?>
                     </div>
                     <div class="card-body">
-                        <p class="card-text collapse" id="collapseParagraph" aria-expanded="false">
+                        <p class="card-text collapse collapse-paragraph" id="id<?= $item->id ?>" aria-expanded="false">
                             <?= $item->opis ?>
                         </p>
                         <span class="card-text">
                             <?= $item->vreme ?>
                         </span>
-                        <a role="button" class="collapsed" data-toggle="collapse" href="#collapseParagraph" aria-expanded="false" aria-controls="collapseParagraph">
+                        <a role="button" class="collapsed" data-toggle="collapse" href="#id<?= $item->id ?>" aria-expanded="false" aria-controls="id<?= $item->id ?>">
                             <img src="<?php echo URLROOT . '/public/img/icons/arrow.svg'; ?>">
                         </a>
                     </div>
                 </div>
                 <?php endforeach; ?>
             </div>
+            <?php endif; ?>
+            <?php
+            if(isset($teamnews)): ?>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <?php foreach ($teamnews as $item): ?>
                 <div class="card">
                     <div class="card-header text-light">
-                        Neka druga vest
+                        <?= $item->naslov ?>
                     </div>
                     <div class="card-body">
-                        <p class="card-text collapse" id="collapseParagraph" aria-expanded="false">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua
+                        <p class="card-text collapse collapse-paragraph" id="id2<?= $item->idvesti ?>" aria-expanded="false">
+                            <?= $item->opis ?>
                         </p>
-                        <span class="card-text">postavljeno 25.05.2021. 18:10</span>
-                        <a role="button" class="collapsed" data-toggle="collapse" href="#collapseParagraph" aria-expanded="false" aria-controls="collapseParagraph">
+                        <span class="card-text"><?= $item->vreme ?></span>
+                        <a role="button" class="collapsed" data-toggle="collapse" href="#id2<?= $item->idvesti ?>" aria-expanded="false" aria-controls="id2<?= $item->idvesti ?>">
                             <img src="<?php echo URLROOT . '/public/img/icons/arrow.svg'; ?>">
                         </a>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
+            <?php endif; ?>
         </div>
         <div class="drop-form accordion mt-4" id="accordionExample">
             <div class="card">
@@ -98,7 +102,6 @@ if (isset($_SESSION["user"])) : ?>
                 </div>
             </div>
         </div>
-        <?php endif; ?>
     </div>
 
 <?php else: ?>

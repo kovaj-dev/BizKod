@@ -1,4 +1,4 @@
-import {getChoosenValuesForSchedule} from "./DomContent.js";
+import {getChosenValuesForSchedule} from "./DomContent.js";
 
 export const validateLoginRequest = () =>
 {
@@ -27,9 +27,9 @@ export const validateLoginRequest = () =>
         })
 }
 
-export const submitChoosenValuesForSchedule = () =>
+export const submitChosenValuesForSchedule = () =>
 {
-    const values = getChoosenValuesForSchedule();
+    const values = getChosenValuesForSchedule();
     const params = new URLSearchParams();
     params.append('monday', values.monday);
     params.append('tuesday', values.tuesday);

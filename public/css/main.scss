@@ -251,10 +251,10 @@ input[type="text"], input[type="password"] {
           background-color: #D2D2D2;
           font-size: 1rem;
           line-height: 1.5;
-          #collapseParagraph.collapsing {
+          .collapse-paragraph.collapsing {
             height: 5.5rem;
           }
-          #collapseParagraph.collapse:not(.show) {
+          .collapse-paragraph.collapse:not(.show) {
             display: block;
             height: 5.5rem;
             overflow: hidden;
