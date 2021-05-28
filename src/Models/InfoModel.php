@@ -20,7 +20,8 @@ class InfoModel implements ModelInterface
     public function selectGeneralNews()
     {
         try {
-            $sql = "SELECT * FROM vesti WHERE id_tim = 0";
+            $sql = "SELECT * FROM vesti WHERE id_tim = 0
+                    ORDER BY id DESC";
             $this->db->query($sql);
             $this->db->execute();
             return $this->db->getResults();
@@ -36,7 +37,8 @@ class InfoModel implements ModelInterface
                     FROM vesti v
                     JOIN tim t ON v.id_tim = t.id
                     JOIN zaposlen z on t.id = z.id_tim
-                    WHERE z.id = :id";
+                    WHERE z.id = :id
+                    ORDER BY v.id DESC";
             $this->db->query($sql);
             $this->db->bind(':id', $userId);
             $this->db->execute();

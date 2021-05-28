@@ -24,11 +24,11 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 if (isset($_SESSION["user"])) : ?>
-    <div class="container-fluid d-flex flex-column">
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
         <h1 class="page-title">Moj tim</h1>
         <?php if (isset($team)): ?>
         <?php foreach ($team as $member): ?>
-                <div class="card mb-3" style="max-width: 540px;">
+                <div class="card mb-3 w-100" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-3">
                             <img src="<?php echo URLROOT . '/public/img/workers/' . $member->slika; ?>"
@@ -44,7 +44,6 @@ if (isset($_SESSION["user"])) : ?>
                 </div>
         <?php endforeach; ?>
         <?php endif; ?>
-        </div>
     </div>
 <?php else: ?>
     <?php
