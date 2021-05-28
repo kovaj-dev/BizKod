@@ -85,4 +85,19 @@ class UserModel implements ModelInterface
             return false;
         }
     }
+
+    public function selectUsersInTeam($userId)
+    {
+        try {
+            $sql = "SELECT ime, prezime, slika FROM zaposlen
+                    WHERE id_tim = (SELECT id_tim FROM zaposlen
+                                    WHERE id = :id)";
+            $this->db->query($sql);
+            $this->db->bind(':id', $userId);
+            $this->db->execute();
+            return $this->db->getResults();
+        } catch (\PDOException $e){
+            return false;
+        }
+    }
 }

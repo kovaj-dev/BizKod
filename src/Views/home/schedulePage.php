@@ -27,9 +27,17 @@
 session_start();
 if (isset($_SESSION["user"])) : ?>
 <div class="container-fluid d-flex flex-column" style="background-color: #F0F0F0; min-height: 100vh">
-
+    <?php if (isset($teamName)): ?>
+        <h1 class="page-title"
+            style="font-weight: normal;
+            color: #353535;
+            text-transform: none;
+            ">
+            <?php echo $teamName->naziv; ?>
+        </h1>
+    <?php endif; ?>
     <?php if (isset($schedule)): ?>
-        <h1 class="page-title">Trenutni raspored</h1>
+        <h1 class="page-title mt-1 mb-1">Trenutni raspored</h1>
         <div class="accordion" id="accordionExample">
             <div class="card">
                 <div class="card-header" id="headingOne">
@@ -248,7 +256,7 @@ if (isset($_SESSION["user"])) : ?>
     <div class="container-fluid d-flex flex-column" style="background-color: #CDCDCD; min-height: 100vh">
 
         <?php if (isset($future)): ?>
-            <h1 class="page-title">Raspored za sledeću nedelju</h1>
+            <h1 class="page-title mb-1">Raspored za sledeću nedelju</h1>
             <div class="accordion" id="accordionExample2">
                 <div class="card">
                     <div class="card-header" id="headingOne2">

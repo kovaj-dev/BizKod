@@ -20,10 +20,31 @@
 </header>
 
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_SESSION["user"])) : ?>
     <div class="container-fluid d-flex flex-column">
         <h1 class="page-title">Moj tim</h1>
+        <?php if (isset($team)): ?>
+        <?php foreach ($team as $member): ?>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-3">
+                            <img src="<?php echo URLROOT . '/public/img/workers/' . $member->slika; ?>"
+                                 alt="<?php $member->slika . $member->ime . $member->prezime; ?>"
+                                 style="width: 6rem;">
+                        </div>
+                        <div class="col-9 d-flex justify-content-center align-items-center">
+                            <div class="card-body">
+                                <h5 class="card-title text-center"><?php echo $member->ime . ' ' . $member->prezime; ?></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <?php endforeach; ?>
+        <?php endif; ?>
+        </div>
     </div>
 <?php else: ?>
     <?php
@@ -37,5 +58,4 @@ if (isset($_SESSION["user"])) : ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </html>

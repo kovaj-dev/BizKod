@@ -25,8 +25,7 @@ class LoginController extends BaseController
     {
         $email = trim($_POST['email']);
         $password = trim($_POST['password']);
-        $errors = Validation::validateLogin($email, $password);
-        if (empty($errors["email"]) && empty($errors["password"])){
+        if (Validation::validateLogin($email, $password)){
             $data = $this->userModel->selectUserExist($email);
             if (!empty($data->email) && password_verify($password, $data->sifra)) {
                 session_start();
@@ -45,7 +44,7 @@ class LoginController extends BaseController
             }
             return new JsonResponse(["status" => "1", "msg" => "Pogrešan email ili lozinka"]);
         }
-        return new JsonResponse(["status" => "0", "msg" => $errors]);
+        return new JsonResponse(["status" => "0", "msg" => "Nešto nije u redu!"]);
     }
 
     public function logoutUser()

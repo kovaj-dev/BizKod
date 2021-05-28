@@ -26,7 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
 if (isset($_SESSION["user"])) : ?>
 
 <div class="container d-flex flex-column align-items-center checkin mb-5">
-    <h1 class="page-title">Prijava za raspored</h1>
+    <h1 class="page-title">Prijava za sledeću nedelju</h1>
     <ul class="list-group mb-3">
         <li class="list-group-item text-light d-flex justify-content-between">
             <div class="day">PONEDELJAK</div>

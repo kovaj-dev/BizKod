@@ -6,22 +6,19 @@ namespace App\Libraries\Services;
 
 class Validation
 {
-    public static function validateLogin($email, $password) :array
+    public static function validateLogin($email, $password) :bool
     {
-        $errorMess= [
-            "email" => "",
-            "password" => ""
-        ];
+        $isValid = true;
         if (empty(trim($email))){
-            $errorMess["email"] = "Molimo vas unesite vaš email";
+            $isValid = false;
         } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $errorMess["email"] = "Pogrešan format email-a";
+            $isValid = false;
         }
         if (empty(trim($password))){
-            $errorMess['password'] = "Molimo vas unesite vašu lozinku";
+            $isValid = false;
         }
 
-        return $errorMess;
+        return $isValid;
     }
 
     public static function validateNewPassword($old, $new, $confirm) :bool

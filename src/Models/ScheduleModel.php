@@ -213,4 +213,18 @@ class ScheduleModel implements ModelInterface
             return false;
         }
     }
+
+    public function selectTeamName($teamId)
+    {
+        try {
+            $sql = "SELECT naziv FROM tim
+                    WHERE id = :id";
+            $this->db->query($sql);
+            $this->db->bind(':id', $teamId);
+            $this->db->execute();
+            return $this->db->getResult();
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
 }

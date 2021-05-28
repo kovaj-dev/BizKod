@@ -51,11 +51,11 @@ if (isset($_SESSION["user"])) : ?>
                     <div class="card-body">
                         <form id="passwordForm" action="">
                             <input type="password" class="form-control mb-3" name="oldpass" id="oldpass" placeholder="Trenutna lozinka">
-                            <p id="oldMessage" style="color: red; font-weight: bold;"></p>
+                            <p id="oldMessage" style="color: red; "></p>
                             <input type="password" class="form-control mb-3" name="newpass" id="newpass" placeholder="Nova lozinka">
-                            <p id="newMessage" style="color: red; font-weight: bold;"></p>
+                            <p id="newMessage" style="color: red; "></p>
                             <input type="password" class="form-control mb-3" name="confirmpass" id="confirmpass" placeholder="Potvrdi novu lozinku">
-                            <p id="confirmMessage" style="color: red; font-weight: bold;"></p>
+                            <p id="confirmMessage" style="color: red; "></p>
                             <button type="submit" class="btn btn-primary save">Sačuvaj</button>
                         </form>
                     </div>

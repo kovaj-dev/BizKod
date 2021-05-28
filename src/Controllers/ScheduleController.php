@@ -28,10 +28,12 @@ class ScheduleController extends BaseController
                 $future = $this->scheduleModel->selectFutureSchedule($teamId);
             }
             $schedule = $this->scheduleModel->selectCurrentScheduleForTeam($teamId);
+            $teamName = $this->scheduleModel->selectTeamName($teamId);
 
             return new Response('home/schedulePage', [
                 "schedule" => $schedule,
-                "future" => $future
+                "future" => $future,
+                "teamName" => $teamName
             ]);
         }
         return new Response('home/loginPage');

@@ -48,4 +48,5 @@ class UserController extends BaseController
         }
         return new JsonResponse(["status" => "2"]);
     }
+
 }
