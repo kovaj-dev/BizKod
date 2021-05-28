@@ -28,7 +28,7 @@ if (isset($_SESSION["user"])) : ?>
         <h1 class="page-title">Moj tim</h1>
         <?php if (isset($team)): ?>
         <?php foreach ($team as $member): ?>
-                <div class="card mb-3 w-100" style="max-width: 540px;">
+                <div class="card w-100" style="max-width: 80%;">
                     <div class="row no-gutters">
                         <div class="col-3">
                             <img src="<?php echo URLROOT . '/public/img/workers/' . $member->slika; ?>"
@@ -41,6 +41,73 @@ if (isset($_SESSION["user"])) : ?>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="container mb-5 mt-1 d-flex justify-content-between" style="width: 80%;">
+                    <?php if ($member->ponedeljak === "1"): ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->ponedeljak; ?>"
+                             style="width: 3rem;">
+                    <?php elseif ($member->ponedeljak === "2"): ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->ponedeljak; ?>"
+                             style="width: 3rem;">
+                    <?php else: ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->ponedeljak; ?>"
+                             style="width: 3rem;">
+                    <?php endif; ?>
+                    <?php if ($member->utorak === "1"): ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->utorak; ?>"
+                             style="width: 3rem;">
+                    <?php elseif ($member->utorak === "2"): ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->utorak; ?>"
+                             style="width: 3rem;">
+                    <?php else: ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->utorak; ?>"
+                             style="width: 3rem;">
+                    <?php endif; ?>
+                    <?php if ($member->sreda === "1"): ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->sreda; ?>"
+                             style="width: 3rem;">
+                    <?php elseif ($member->sreda === "2"): ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->sreda; ?>"
+                             style="width: 3rem;">
+                    <?php else: ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->sreda; ?>"
+                             style="width: 3rem;">
+                    <?php endif; ?>
+                    <?php if ($member->cetvrtak === "1"): ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->cetvrtak; ?>"
+                             style="width: 3rem;">
+                    <?php elseif ($member->cetvrtak === "2"): ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->cetvrtak; ?>"
+                             style="width: 3rem;">
+                    <?php else: ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->cetvrtak; ?>"
+                             style="width: 3rem;">
+                    <?php endif; ?>
+                    <?php if ($member->petak === "1"): ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->petak; ?>"
+                             style="width: 3rem;">
+                    <?php elseif ($member->petak === "2"): ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/pinkoffice.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->petak; ?>"
+                             style="width: 3rem;">
+                    <?php else: ?>
+                        <img src="<?php echo URLROOT . '/public/img/icons/question_mark.svg'; ?>"
+                             alt="<?php echo 'question' . $member->ime . $member->prezime . $member->petak; ?>"
+                             style="width: 3rem;">
+                    <?php endif; ?>
                 </div>
         <?php endforeach; ?>
         <?php endif; ?>

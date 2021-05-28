@@ -46,8 +46,9 @@ class HomeController extends BaseController
     {
         if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set") {
             session_start();
-            $id = $_SESSION["user"]["id"];
-            $team = $this->userModel->selectUsersInTeam($id);
+            $userId = $_SESSION["user"]["id"];
+            $teamId = $this->userModel->selectTeamIdForUser($userId);
+            $team = $this->scheduleModel->selectCurrentScheduleForTeam($teamId->timId);
             return new Response('home/teamPage', [
                 "team" => $team
             ]);

@@ -101,13 +101,16 @@ class UserModel implements ModelInterface
         }
     }
 
-    public function selectAllUsers()
+    public function selectTeamIdForUser($userId)
     {
         try {
-            $sql = "SELECT id FROM zaposlen";
+            $sql = "SELECT t.id timId FROM tim t
+                    JOIN zaposlen z on t.id = z.id_tim
+                    WHERE z.id = :id";
             $this->db->query($sql);
+            $this->db->bind(':id', $userId);
             $this->db->execute();
-            return $this->db->getResults();
+            return $this->db->getResult();
         } catch (\PDOException $e) {
             return false;
         }

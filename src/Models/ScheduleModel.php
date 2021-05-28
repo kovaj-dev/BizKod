@@ -22,7 +22,7 @@ class ScheduleModel implements ModelInterface
             $sql = "SELECT zaposlen.id, ime, prezime, slika, ponedeljak, utorak, sreda, cetvrtak, petak FROM zaposlen
                     LEFT JOIN raspored tr on zaposlen.id = tr.id_zaposlen
                     LEFT JOIN nedelja r on r.id = tr.id_raspored
-                    WHERE id_tim = :tim AND (NOW() BETWEEN pocetak AND kraj OR id_raspored is null)";
+                    WHERE id_tim = :tim AND (NOW() BETWEEN pocetak AND kraj)";
             $this->db->query($sql);
             $this->db->bind(':tim', $teamId);
             $this->db->execute();
@@ -38,7 +38,7 @@ class ScheduleModel implements ModelInterface
             $sql = "SELECT zaposlen.id, ime, prezime, slika, ponedeljak, utorak, sreda, cetvrtak, petak FROM zaposlen
                     LEFT JOIN raspored tr on zaposlen.id = tr.id_zaposlen
                     LEFT JOIN nedelja r on r.id = tr.id_raspored
-                    WHERE id_tim = :tim AND (DATE_ADD(NOW(), INTERVAL 7 DAY) BETWEEN pocetak AND kraj OR id_raspored is null)";
+                    WHERE id_tim = :tim AND (DATE_ADD(NOW(), INTERVAL 7 DAY) BETWEEN pocetak AND kraj)";
             $this->db->query($sql);
             $this->db->bind(':tim', $teamId);
             $this->db->execute();
