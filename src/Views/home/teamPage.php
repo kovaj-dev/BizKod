@@ -42,7 +42,7 @@ if (isset($_SESSION["user"])) : ?>
                         </div>
                     </div>
                 </div>
-                <div class="container mb-5 mt-1 d-flex justify-content-between" style="width: 80%;">
+                <div class="container mb-5 d-flex justify-content-between icons-bg" style="width: 80%;">
                     <?php if ($member->ponedeljak === "1"): ?>
                         <img src="<?php echo URLROOT . '/public/img/icons/bluehome.svg'; ?>"
                              alt="<?php echo 'question' . $member->ime . $member->prezime . $member->ponedeljak; ?>"
