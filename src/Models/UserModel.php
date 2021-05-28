@@ -100,4 +100,16 @@ class UserModel implements ModelInterface
             return false;
         }
     }
+
+    public function selectAllUsers()
+    {
+        try {
+            $sql = "SELECT id FROM zaposlen";
+            $this->db->query($sql);
+            $this->db->execute();
+            return $this->db->getResults();
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
 }

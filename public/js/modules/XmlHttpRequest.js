@@ -14,6 +14,9 @@ export const validateLoginRequest = () =>
     })
         .then((response) => {
             let data = response.data;
+            if (data.status === "3"){
+                console.log(data.msg);
+            }
             if (data.status === "2"){
                 location.replace('/bizkod/home');
 

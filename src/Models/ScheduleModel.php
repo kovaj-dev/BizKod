@@ -227,4 +227,5 @@ class ScheduleModel implements ModelInterface
             return false;
         }
     }
+
 }

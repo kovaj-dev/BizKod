@@ -38,6 +38,12 @@ class LoginController extends BaseController
                 if ($this->scheduleModel->selectFutureScheduleExist() < 1) {
                     $interval = $this->scheduleModel->selectFutureScheduleInterval();
                     $this->scheduleModel->generateFutureSchedule($interval->nextStart, $interval->nextEnd);
+                    $allUsers = $this->userModel->selectAllUsers();
+                    $futureId = $this->scheduleModel->selectFutureScheduleId()->id;
+                    foreach ($allUsers as $user)
+                    {
+                        $this->scheduleModel->insertUserInSchedule($futureId, $user->id, 0, 0, 0, 0, 0);
+                    }
                 }
                 $_SESSION["user"] = ["id" => $data->id, "email" => $email, "role" => $data->id_uloga];
                 return new JsonResponse(["status" => "2", "msg" => "uspešan login"]);
