@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav d-flex w-100">
                 <li class="nav-item m-2">
-                    <a class="nav-link font-weight-bold text-light" href="/bizkod/home">Rasporedi timova</a>
+                    <a class="nav-link font-weight-bold text-light" href="/bizkod/team">Moj tim</a>
                 </li>
                 <li class="nav-item m-2">
                     <a class="nav-link font-weight-bold text-light" href="/bizkod/checkin">Prijava za raspored</a>

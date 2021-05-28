@@ -42,6 +42,14 @@ class HomeController extends BaseController
         return new Response('home/loginPage');
     }
 
+    public function teamPage()
+    {
+        if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set") {
+            return new Response('home/teamPage');
+        }
+        return new Response('home/loginPage');
+    }
+
     public function checkinPage() {
         if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set") {
             session_start();
