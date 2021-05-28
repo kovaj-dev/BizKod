@@ -34,8 +34,6 @@ $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
 
 switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
-        die("nije dozvoljeno");
-        break;
     case FastRoute\Dispatcher::NOT_FOUND:
         $fqcn = "App\\Controllers\\HomeController";
         call_user_func(array(new $fqcn,"error"));
