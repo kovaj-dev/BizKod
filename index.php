@@ -8,6 +8,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
     $r->addRoute('GET', '/', 'HomeController/index');
     $r->addRoute('POST', '/login', 'LoginController/loginUser');
     $r->addRoute('GET', '/home', 'HomeController/homePage');
+    $r->addRoute('GET', '/team', 'HomeController/teamPage');
     $r->addRoute('GET', '/schedule/{id:\d+}', 'ScheduleController/showScheduleForTeam');
     $r->addRoute('GET', '/checkin', 'HomeController/checkinPage');
     $r->addRoute('GET', '/info', 'HomeController/infoPage');
