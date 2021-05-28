@@ -67,6 +67,17 @@ input[type="text"], input[type="password"] {
   font-style: italic;
 }
 
+.arrow-back {
+  position: fixed;
+  bottom: 1.8rem;
+  left: 1.8rem;
+  z-index: 6;
+  img {
+    width: 3.5rem;
+    opacity: 0.7;
+  }
+}
+
 .login button[type="submit"], .checkin button[type="submit"] {
   width: 80%;
   text-transform: uppercase;
@@ -86,6 +97,12 @@ input[type="text"], input[type="password"] {
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 1rem;
   text-align: center;
+}
+
+.login {
+  img {
+    margin-top: 6rem;
+  }
 }
 
 /* TEAMS PAGE */
@@ -306,6 +323,76 @@ input[type="text"], input[type="password"] {
       }
     }
   }
+}
 
+/* BREAKING POINTS:
+   none <576px
+     sm ≥576px
+     md ≥768px
+     lg ≥992px
+     xl ≥1200px
+    xxl ≥1400px */
+@media (min-width: 992px) {
+  .navbar-dark {
+    .nav-link {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      margin: 0 2rem;
+    }
+  }
+  .page-title {
+    margin: 10rem 2rem 3rem 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+  }
+  #loginForm {
+    width: 30%;
+    input[type="text"], input[type="password"], button {
+      font-size: 1.5rem;
+    }
+  }
+  .teams {
+    .card {
+      width: 12rem;
+      margin: 1rem !important;
+      .card-title {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .accordion {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .checkin {
+    .list-group {
+      width: 50%;
+      .list-group-item {
+        font-size: 1.2rem;
+      }
+    }
+    #submitSchedule {
+      width: 50%;
+    }
+  }
+  .login {
+    img {
+      margin-top: 12rem;
+    }
+  }
+  .news {
+    .nav {
+      width: 56%;
+    }
+    .tab-content {
+      width: 70%;
+    }
+  }
+  .profile {
+    .drop-form {
+      width: 60%;
+    }
+  }
 
 }

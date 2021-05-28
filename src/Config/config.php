@@ -1,7 +1,7 @@
 <?php
 
 define("ROOT", dirname(__DIR__));
-define('URLROOT', 'http://localhost/bizkod/');
+define('URLROOT', 'http://localhost:8080/bizkod/');
 
 //config
 

@@ -19,10 +19,14 @@
     <?php require_once ROOT . "/Views/includes/navbar.php"; ?>
 </header>
 
+<a class="arrow-back" href="/bizkod/home">
+    <img src="<?php echo URLROOT . '/public/img/icons/back.svg'; ?>" alt="Back Arrow">
+</a>
+
 <?php
 session_start();
 if (isset($_SESSION["user"])) : ?>
-<div class="container d-flex flex-column" style="background-color: #F0F0F0; min-height: 100vh">
+<div class="container-fluid d-flex flex-column" style="background-color: #F0F0F0; min-height: 100vh">
 
     <?php if (isset($schedule)): ?>
         <h1 class="page-title">Trenutni raspored</h1>
@@ -241,7 +245,7 @@ if (isset($_SESSION["user"])) : ?>
 
     <?php endif; ?>
 </div>
-    <div class="container d-flex flex-column" style="background-color: #CDCDCD; min-height: 100vh">
+    <div class="container-fluid d-flex flex-column" style="background-color: #CDCDCD; min-height: 100vh">
 
         <?php if (isset($future)): ?>
             <h1 class="page-title">Raspored za sledeću nedelju</h1>
