@@ -10,7 +10,7 @@
                     <a class="nav-link font-weight-bold text-light" href="/bizkod/team">Moj tim</a>
                 </li>
                 <li class="nav-item m-2">
-                    <a class="nav-link font-weight-bold text-light" href="/bizkod/checkin">Prijava za raspored</a>
+                    <a class="nav-link font-weight-bold text-light" href="/bizkod/checkin/0">Prijava za raspored</a>
                 </li>
                 <li class="nav-item m-2">
                     <a class="nav-link font-weight-bold text-light" href="/bizkod/info">Vesti</a>
@@ -18,6 +18,15 @@
                 <li class="nav-item m-2">
                     <a class="nav-link font-weight-bold text-light" href="/bizkod/profile">Profil</a>
                 </li>
+                <?php
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
+                if(isset($_SESSION["user"]) && $_SESSION["user"]["role"] === "1"): ?>
+                <li class="nav-item m-2">
+                    <a class="nav-link font-weight-bold text-light" href="/bizkod/statspage">Statistika</a>
+                </li>
+                <?php endif; ?>
                 <li class="nav-item m-2">
                     <a class="nav-link font-weight-bold text-light" href="/bizkod/logout">Izloguj se</a>
                 </li>

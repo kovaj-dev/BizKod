@@ -20,7 +20,7 @@
 </header>
 
 <?php
-session_start();
+
 if (isset($_SESSION["user"])) : ?>
 <div class="container-fluid d-flex flex-column">
 <?php if (isset($teams)): ?>

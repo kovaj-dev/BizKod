@@ -334,6 +334,12 @@ input[type="text"], input[type="password"] {
   border-bottom-right-radius: 1rem;
 }
 
+/* STATS PAGE */
+
+#statisticData {
+  font-weight: bold;
+}
+
 /* BREAKING POINTS:
    none <576px
      sm ≥576px
@@ -341,7 +347,7 @@ input[type="text"], input[type="password"] {
      lg ≥992px
      xl ≥1200px
     xxl ≥1400px */
-@media (min-width: 992px) {
+@media (min-width: 576px) {
   .navbar-dark {
     .nav-link {
       font-size: 1.5rem;

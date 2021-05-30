@@ -39,6 +39,7 @@ export const submitChosenValuesForSchedule = () =>
     params.append('wednesday', values.wednesday);
     params.append('thursday', values.thursday);
     params.append('friday', values.friday);
+    params.append('userId', values.userId);
     axios({
         method: 'post',
         data: params,
@@ -96,4 +97,94 @@ export const submitNewsFormRequest = () =>
                 location.reload();
             }
         })
+}
+
+export const chartRequest = () =>
+{
+    const stats = document.querySelector('#statisticData');
+    axios({
+        method: 'post',
+        url: '/bizkod/statistic'
+    })
+        .then((response) => {
+            let res = response.data;
+            console.log(res);
+            const sumOfMonday = parseInt(res.monday[0].result) + parseInt(res.monday[1].result) + parseInt(res.monday[2].result);
+            const sumOfTuesday = parseInt(res.tuesday[0].result) + parseInt(res.tuesday[1].result) + parseInt(res.tuesday[2].result);
+            const sumOfWednesday = parseInt(res.wednesday[0].result) + parseInt(res.wednesday[1].result) + parseInt(res.wednesday[2].result);
+            const sumOfThursday = parseInt(res.thursday[0].result) + parseInt(res.thursday[1].result) + parseInt(res.thursday[2].result);
+            const sumOfFriday = parseInt(res.friday[0].result) + parseInt(res.friday[1].result) + parseInt(res.friday[2].result);
+            stats.innerText = `
+            ponedeljak: iz kancelarije rade ${(parseInt(res.monday[2].result)/sumOfMonday)*100}%
+            utorak: iz kancelarije rade ${(parseInt(res.tuesday[2].result)/sumOfTuesday)*100}%
+            sreda: iz kancelarije rade ${(parseInt(res.wednesday[2].result)/sumOfWednesday)*100}%
+            četvrtak: iz kancelarije rade ${(parseInt(res.thursday[2].result)/sumOfThursday)*100}%
+            petak: iz kancelarije rade ${(parseInt(res.friday[2].result)/sumOfFriday)*100}%
+            `;
+            const data = {
+                labels: [
+                    'Neodređeno',
+                    'Kod kuće',
+                    'Iz kancelarije'
+                ],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [res.monday[0].result, res.monday[1].result, res.monday[2].result],
+                    backgroundColor: [
+                        '#282A2D',
+                        '#00AEEF',
+                        '#ED0C6E'
+                    ],
+                    hoverOffset: 4
+                },
+                    {
+                    label: 'My First Dataset',
+                    data: [res.tuesday[0].result, res.tuesday[1].result, res.tuesday[2].result],
+                    backgroundColor: [
+                        '#282A2D',
+                        '#00AEEF',
+                        '#ED0C6E'
+                    ],
+                    hoverOffset: 4
+                },
+                    {
+                        label: 'My First Dataset',
+                        data: [res.wednesday[0].result, res.wednesday[1].result, res.wednesday[2].result],
+                        backgroundColor: [
+                            '#282A2D',
+                            '#00AEEF',
+                            '#ED0C6E'
+                        ],
+                        hoverOffset: 4
+                    },
+                    {
+                        label: 'My First Dataset',
+                        data: [res.thursday[0].result, res.thursday[1].result, res.thursday[2].result],
+                        backgroundColor: [
+                            '#282A2D',
+                            '#00AEEF',
+                            '#ED0C6E'
+                        ],
+                        hoverOffset: 4
+                    },
+                    {
+                        label: 'My First Dataset',
+                        data: [res.friday[0].result, res.friday[1].result, res.friday[2].result],
+                        backgroundColor: [
+                            '#282A2D',
+                            '#00AEEF',
+                            '#ED0C6E'
+                        ],
+                        hoverOffset: 4
+                    }]
+            };
+            const config = {
+                type: 'pie',
+                data: data
+            };
+            var myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        });
 }

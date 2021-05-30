@@ -17,18 +17,18 @@ class ScheduleController extends BaseController
         $this->scheduleModel = $this->model(new ScheduleModel());
     }
 
-    public function showScheduleForTeam($teamId)
+    public function showScheduleForTeam($id)
     {
         if (isset($_COOKIE["session"]) && $_COOKIE["session"] === "set"){
             $future = [];
-            if ($this->scheduleModel->selectTeamExistInSchedule($teamId) > 0){
-                $future = $this->scheduleModel->selectFutureScheduleForTeam($teamId);
+            if ($this->scheduleModel->selectTeamExistInSchedule($id) > 0){
+                $future = $this->scheduleModel->selectFutureScheduleForTeam($id);
             }
             else{
-                $future = $this->scheduleModel->selectFutureSchedule($teamId);
+                $future = $this->scheduleModel->selectFutureSchedule($id);
             }
-            $schedule = $this->scheduleModel->selectCurrentScheduleForTeam($teamId);
-            $teamName = $this->scheduleModel->selectTeamName($teamId);
+            $schedule = $this->scheduleModel->selectCurrentScheduleForTeam($id);
+            $teamName = $this->scheduleModel->selectTeamName($id);
 
             return new Response('home/schedulePage', [
                 "schedule" => $schedule,
@@ -46,6 +46,7 @@ class ScheduleController extends BaseController
         $wednesday = $_POST['wednesday'];
         $thursday = $_POST['thursday'];
         $friday = $_POST['friday'];
+        $userId = $_POST['userId'];
         $allowed = ["0", "1", "2"];
         if (!in_array($monday, $allowed, false)){
             $monday = "0";
@@ -62,17 +63,22 @@ class ScheduleController extends BaseController
         if (!in_array($friday, $allowed, false)){
             $friday = "0";
         }
+
         session_start();
-        $userId = $_SESSION["user"]["id"];
-        if ($this->scheduleModel->selectUserExistInFutureSchedule($userId) > 0)
+        $userIdCurrent = $_SESSION["user"]["id"];
+        if ($userId !== $userIdCurrent)
         {
-            if ($this->scheduleModel->updateUserSchedule($userId, $monday, $tuesday, $wednesday, $thursday, $friday)){
+            $userIdCurrent = $userId;
+        }
+        if ($this->scheduleModel->selectUserExistInFutureSchedule($userIdCurrent) > 0)
+        {
+            if ($this->scheduleModel->updateUserSchedule($userIdCurrent, $monday, $tuesday, $wednesday, $thursday, $friday)){
                 return new JsonResponse(["status" => "0", "msg" => "prijava uspela"]);
             }
             return new JsonResponse(["status" => "1", "msg" => "prijava nije uspela"]);
         }
         $scheduleId = $this->scheduleModel->selectFutureScheduleId()->id;
-        if ($this->scheduleModel->insertUserInSchedule($scheduleId, $userId, $monday, $tuesday, $wednesday, $thursday, $friday)) {
+        if ($this->scheduleModel->insertUserInSchedule($scheduleId, $userIdCurrent, $monday, $tuesday, $wednesday, $thursday, $friday)) {
             return new JsonResponse(["status" => "0", "msg" => "prijava uspela"]);
         }
         return new JsonResponse(["status" => "1", "msg" => "prijava nije uspela"]);

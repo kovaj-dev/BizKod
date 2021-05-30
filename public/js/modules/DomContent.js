@@ -16,7 +16,8 @@ export const getChosenValuesForSchedule = () =>
     const thursday = document.getElementsByName("thursday");
     const wednesday = document.getElementsByName("wednesday");
     const tuesday = document.getElementsByName("tuesday");
-    const friday = document.getElementsByName("friday");
+    const friday = document.getElementsByName("friday")
+    const userId = document.querySelector('#userid');
 
     let mondayValue = 0;
     monday.forEach((radio) => {
@@ -58,7 +59,8 @@ export const getChosenValuesForSchedule = () =>
         tuesday: tuesdayValue,
         wednesday: wednesdayValue,
         thursday: thursdayValue,
-        friday: fridayValue
+        friday: fridayValue,
+        userId: userId.value
     }
 }
 

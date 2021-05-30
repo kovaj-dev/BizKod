@@ -264,6 +264,9 @@ if (isset($_SESSION["user"])) : ?>
             </div>
         </li>
     </ul>
+    <?php if (isset($userSchedule)): ?>
+        <input type="hidden" id="userid" name="userId" value="<?php echo $userSchedule->id_zaposlen; ?>">
+    <?php endif; ?>
     <button type="submit" id="submitSchedule" class="btn btn-primary">Sačuvaj</button>
 </div>
 

@@ -10,13 +10,15 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
     $r->addRoute('GET', '/home', 'HomeController/homePage');
     $r->addRoute('GET', '/team', 'HomeController/teamPage');
     $r->addRoute('GET', '/schedule/{id:\d+}', 'ScheduleController/showScheduleForTeam');
-    $r->addRoute('GET', '/checkin', 'HomeController/checkinPage');
+    $r->addRoute('GET', '/checkin/{id:\d+}', 'HomeController/checkinPage');
     $r->addRoute('GET', '/info', 'HomeController/infoPage');
     $r->addRoute('POST','/insertnews', 'InfoController/insertNewsValues');
     $r->addRoute('GET', '/profile', 'HomeController/profilePage');
     $r->addRoute('GET', '/logout', 'LoginController/logoutUser');
     $r->addRoute('POST', '/submitvalues', 'ScheduleController/submitNextScheduleValues');
     $r->addRoute('POST', '/newpassword', 'UserController/changePassword');
+    $r->addRoute('GET', '/statspage', 'HomeController/statsPage');
+    $r->addRoute('POST', '/statistic', 'HomeController/showStatistic');
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];

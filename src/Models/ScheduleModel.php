@@ -228,4 +228,108 @@ class ScheduleModel implements ModelInterface
         }
     }
 
+    public function selectMondayChart($teamId, $place)
+    {
+        try {
+            $sql = "select count(*) result from raspored r
+                    join zaposlen z on z.id = r.id_zaposlen
+                    join nedelja n on n.id = r.id_raspored
+                    where ponedeljak = :place
+                    AND id_raspored in (select n.id from nedelja
+                    where DATE_ADD(now(), interval 7 day ) between n.pocetak and n.kraj)
+                    and id_tim = :id";
+            $this->db->query($sql);
+            //$this->db->bind(':day', $day);
+            $this->db->bind(':place', $place);
+            $this->db->bind(':id', $teamId);
+            $this->db->execute();
+            return $this->db->getResult();
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
+
+    public function selectTuesdayChart($teamId, $place)
+    {
+        try {
+            $sql = "select count(*) result from raspored r
+                    join zaposlen z on z.id = r.id_zaposlen
+                    join nedelja n on n.id = r.id_raspored
+                    where utorak = :place
+                    AND id_raspored in (select n.id from nedelja
+                    where DATE_ADD(now(), interval 7 day ) between n.pocetak and n.kraj)
+                    and id_tim = :id";
+            $this->db->query($sql);
+            //$this->db->bind(':day', $day);
+            $this->db->bind(':place', $place);
+            $this->db->bind(':id', $teamId);
+            $this->db->execute();
+            return $this->db->getResult();
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
+
+    public function selectWednesdayChart($teamId, $place)
+    {
+        try {
+            $sql = "select count(*) result from raspored r
+                    join zaposlen z on z.id = r.id_zaposlen
+                    join nedelja n on n.id = r.id_raspored
+                    where sreda = :place
+                    AND id_raspored in (select n.id from nedelja
+                    where DATE_ADD(now(), interval 7 day ) between n.pocetak and n.kraj)
+                    and id_tim = :id";
+            $this->db->query($sql);
+            //$this->db->bind(':day', $day);
+            $this->db->bind(':place', $place);
+            $this->db->bind(':id', $teamId);
+            $this->db->execute();
+            return $this->db->getResult();
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
+
+    public function selectThursdayChart($teamId, $place)
+    {
+        try {
+            $sql = "select count(*) result from raspored r
+                    join zaposlen z on z.id = r.id_zaposlen
+                    join nedelja n on n.id = r.id_raspored
+                    where cetvrtak = :place
+                    AND id_raspored in (select n.id from nedelja
+                    where DATE_ADD(now(), interval 7 day ) between n.pocetak and n.kraj)
+                    and id_tim = :id";
+            $this->db->query($sql);
+            //$this->db->bind(':day', $day);
+            $this->db->bind(':place', $place);
+            $this->db->bind(':id', $teamId);
+            $this->db->execute();
+            return $this->db->getResult();
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
+
+    public function selectFridayChart($teamId, $place)
+    {
+        try {
+            $sql = "select count(*) result from raspored r
+                    join zaposlen z on z.id = r.id_zaposlen
+                    join nedelja n on n.id = r.id_raspored
+                    where petak = :place
+                    AND id_raspored in (select n.id from nedelja
+                    where DATE_ADD(now(), interval 7 day ) between n.pocetak and n.kraj)
+                    and id_tim = :id";
+            $this->db->query($sql);
+            //$this->db->bind(':day', $day);
+            $this->db->bind(':place', $place);
+            $this->db->bind(':id', $teamId);
+            $this->db->execute();
+            return $this->db->getResult();
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
 }

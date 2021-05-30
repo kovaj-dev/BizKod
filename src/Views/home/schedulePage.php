@@ -24,7 +24,9 @@
 </a>
 
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_SESSION["user"])) : ?>
 <div class="container-fluid d-flex flex-column" style="background-color: #F0F0F0; min-height: 100vh">
     <?php if (isset($teamName)): ?>
